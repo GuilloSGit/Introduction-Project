@@ -98,13 +98,20 @@ li {
   flex-wrap: wrap;
   align-items: center;
 }
-.pointDescription {
+.point {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   margin-bottom: 20px;
 }
-.pointDescription > h3 {
+.point > h3 { /* Title */
+  margin: 3px 0px;
+  padding: 4px 8px;
+  width: 100%;
+  background-color: rgb(86, 82, 82);
+  color: aliceblue;
+}
+.pointDescription { /* Description */
   margin: 3px 0px;
   padding: 4px 8px;
   width: 100%;
@@ -113,15 +120,17 @@ li {
 }
 .pointImage {
   margin: 15px;
-  width: 110px;
   height: 110px;
+  width: 110px;
   image-rendering: optimizeQuality;
   border-radius: 50%;
 }
 .pointLatAndLng {
   display: flex;
   flex-direction: column;
+  margin-top: 15px;
 }
 .pointLatAndLng > p {
   margin: 3px 0px;
+  max-width: 50%;
 }
