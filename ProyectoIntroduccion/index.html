@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!--
+ @license
+ Copyright 2019 Google LLC. All Rights Reserved.
+ SPDX-License-Identifier: Apache-2.0
+-->
+<html>
+
+<head>
+    <title>Introduction</title>
+
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+    <script type="module" src="./mapAdding.js"></script>
+    <script type="module" src="./pointsAdding.js"></script>
+</head>
+
+<body>
+    <nav class="navigator">
+        <picture>
+            <source srcset="./images/logo.webp" type="image/webp">
+            <img class="logo" src="./images/logo.png" alt="logo">
+        </picture>
+        <h3 class="pageTitle">Practice with maps</h3>
+    </nav>
+    <!--The div element for the map -->
+    <main>
+        <div id="map"></div>
+        <aside id="panel" class="pointsPanel">
+            <h4 class="pointsTitle">Points of Interest</h4>
+            <ul id="points">
+                <!-- points imported from points.js -->
+            </ul>
+        </aside>
+
+    </main>
+
+    <!-- 
+     The `defer` attribute causes the callback to execute after the full HTML
+     document has been parsed. For non-blocking uses, avoiding race conditions,
+     and consistent behavior across browsers, consider loading using Promises
+     with https://www.npmjs.com/package/@googlemaps/js-api-loader.
+    -->
+    <script src="https://maps.googleapis.com/maps/api/js?AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly" defer>
+    </script>
+</body>
+
+</html>
