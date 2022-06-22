@@ -11,31 +11,20 @@ class CustomPanel {
     }
 
     _fillPoint(li, point) {
-        /* create a div */
-        const div = document.createElement('div');
-        div.className = "point";
-        div.innerHTML = `<h3>${point.title}</h3>`;
-
-        /* create a div with a class pointDescription */
-        const divDescription = document.createElement('div');
-        divDescription.className = "pointDescription";
-        
-        /* create a new div with class latAndLng */
-        const divLatAndLng = document.createElement('div');
-        divLatAndLng.className = "pointLatAndLng";
-        divLatAndLng.innerHTML += `<p>Lat: ${point.lat}</p>`;
-        divLatAndLng.innerHTML += `<p>Long: ${point.lng}</p>`;
-        divLatAndLng.innerHTML += `<p>Brief: ${point.description}</p>`;
-
-        /* create a new div with class pointImage */
-        const divImage = document.createElement('div');
-        divImage.className = "pointImage";
-        divImage.innerHTML += `<img src="${point.image}" class="pointImage">`;
-
-        /* append the divs to the li */
+        /* Crear un div para cada ítem */
+        var div = document.createElement('div');
+        div.className = 'point';
+        div.innerHTML = (
+            `<h3>${point.title}</h3>` +
+            `<div class="point-description">` +
+            `<p><b>Lat:</b> ${point.lat}</p>` +
+            `<p><b>Long:</b> ${point.lng}</p>` +
+            `<p class="item-info"><b>Info:</b> ${point.description}</p>` +
+            `</div>` +
+            `<div class="point-image">` +
+            `<img src="${point.image}" class="point-image">`
+        );
+        /* Incorporando cada ítem con el método appendChild al HTML */
         li.appendChild(div);
-        div.appendChild(divDescription);
-        divDescription.appendChild(divLatAndLng);
-        divDescription.appendChild(divImage);
     }
 }
