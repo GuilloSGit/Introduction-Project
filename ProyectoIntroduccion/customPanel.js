@@ -1,7 +1,20 @@
 class CustomPanel {
+    constructor() {
+        this._initialize();
+    }
+
+    _initialize() {
+        EventsListener.subscribe(
+            "bounds-changed",
+            (map) => { this._boundsChanged(map); }
+        );
+    }
+
     showPoints(points) {
         const list = document.getElementById("points");
         let li;
+
+        list.innerHTML = "";
 
         for (let point of points) {
             li = document.createElement('li');
@@ -26,5 +39,10 @@ class CustomPanel {
         );
         /* Incorporando cada ítem con el método appendChild al HTML */
         li.appendChild(div);
+    }
+
+    _boundsChanged(map) {
+        const points = map.getPointsInBounds();
+        this.showPoints(points);
     }
 }
