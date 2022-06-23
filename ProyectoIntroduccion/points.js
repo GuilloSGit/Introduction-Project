@@ -1,5 +1,6 @@
 var POINTS = [
     {
+        id: "A",
         title: 'Odea Office',
         lat: -34.5995264,
         lng: -58.3819684,
@@ -7,6 +8,7 @@ var POINTS = [
         description: 'Odea is a Software Company that develops software for the web and mobile devices.'
     },
     {
+        id: "B",
         title: 'Valle de la Luna',
         lat: -30.16380592375114,
         lng: -67.8469786709814,
@@ -14,6 +16,7 @@ var POINTS = [
         description: 'Valle de la Luna is a mountain range in the center of the country.'
     },
     {
+        id: "C",
         title: 'Ciudad de la Plata',
         lat: -34.920528,
         lng: -57.9881897,
@@ -21,6 +24,7 @@ var POINTS = [
         description: 'Ciudad de la Plata is a city in the east of the country.'
     },
     {
+        id: "D",
         title: 'Humahuaca',
         lat: -23.2095856,
         lng: -65.3597078,
@@ -28,6 +32,7 @@ var POINTS = [
         description: 'Humahuaca is a mountain range in the north of the country.'
     },
     {
+        id: "E",
         title: 'Puerto Iguazu',
         lat: -25.6173982,
         lng: -54.5856858,
@@ -35,6 +40,7 @@ var POINTS = [
         description: 'Puerto Iguazu is a waterfall in the north-east of the country.'
     },
     {
+        id: "F",
         title: 'Palermo',
         lat: -34.5733928,
         lng: -58.4568937,
@@ -42,6 +48,7 @@ var POINTS = [
         description: 'Palermo is a city in Buenos Aires.'
     },
     {
+        id: "G",
         title: 'Buenos Aires',
         lat: -35.7147708,
         lng: -59.0458489,
@@ -49,6 +56,7 @@ var POINTS = [
         description: 'Buenos Aires is a province of Argentina.'
     },
     {
+        id: "H",
         title: 'Tartagal',
         lat: -22.5216065,
         lng: -63.7985674,
@@ -56,6 +64,7 @@ var POINTS = [
         description: 'Tartagal is a city of Salta Province.'
     },
     {
+        id: "I",
         title: 'Bariloche',
         lat: -41.1281345,
         lng: -71.4834377,
@@ -63,6 +72,7 @@ var POINTS = [
         description: 'Bariloche is a city of Río Negro.'
     },
     {
+        id: "J",
         title: 'Tunuyán',
         lat: -33.5823906,
         lng: -69.0445688,
@@ -70,6 +80,7 @@ var POINTS = [
         description: 'Tunuyán is a city of Mendoza.'
     },
     {
+        id: "K",
         title: 'Ushuaia',
         lat: -54.8019095,
         lng: -68.3098984,
@@ -77,6 +88,7 @@ var POINTS = [
         description: 'Ushuaia is the southest city of Tierra del Fuego and of Argentina.'
     },
     {
+        id: "L",
         title: 'Córdoba Capital',
         lat: -31.4115,
         lng: -64.1811,
@@ -84,6 +96,7 @@ var POINTS = [
         description: 'Córdoba is a city of Córdoba Province.'
     },
     {
+        id: "M",
         title: 'Rosario',
         lat: -32.924,
         lng: -60.633,
@@ -91,6 +104,7 @@ var POINTS = [
         description: 'Rosario is a city of Santa Fe Province.'
     },
     {
+        id: "N",
         title: 'General Acha, La Pampa',
         lat: -37.3742707,
         lng: -64.6285894,
@@ -98,6 +112,7 @@ var POINTS = [
         description: 'Genaral Acha is a county of La Pampa.'
     },
     {
+        id: "O",
         title: 'Las Grutas',
         lat: -40.8112756,
         lng: -65.0955306,

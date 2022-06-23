@@ -12,5 +12,10 @@ function runPanel() {
 
 function runMap() {
 	map = new CustomMap();
+	map.createPointId = createPointId;
 	map.showPoints(POINTS);
+}
+
+function createPointId(point) {
+	return point.id;
 }

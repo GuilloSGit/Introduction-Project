@@ -38,15 +38,19 @@ class CustomMap {
     getPointsInBounds() {
         const out = [];
         const bounds = this._map.getBounds();
-        let element;
+        let marker;
 
         for (let id in this._markers) {
-            element = this._markers[id];
-            if (bounds.contains(element.marker.getPosition())) {
-                out.push(element);
+            marker = this._markers[id];
+            if (bounds.contains(marker.getPosition())) {
+                out.push(id);
             }
         }
         return out;
+    }
+
+    getPointById(id) {
+        return this._markers[id];
     }
 
     showPoints(points) {
@@ -61,7 +65,7 @@ class CustomMap {
     }
 
     _createPoint(point) {
-        const id = point.lat + ":" + point.lng;
+        const id = this.createPointId(point);
         let marker = this._markers[id];
 
         if (!marker) {
@@ -75,9 +79,13 @@ class CustomMap {
             });
         }
         
-        this._markers[id] = { marker: marker, record: point };
+        this._markers[id] = marker;
 
         return marker;
+    }
+
+    createPointId(point) {
+        return point.lat + ":" + point.lng;
     }
 
     _createInfoWindow(point) {

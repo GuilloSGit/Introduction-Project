@@ -42,10 +42,10 @@ class CustomPanel {
     }
 
     _boundsChanged(map) {
-        const elements = map.getPointsInBounds();
+        const ids = map.getPointsInBounds();
         const points = [];
-        elements.forEach(element => {
-            points.push(element.record);
+        ids.forEach(id => {
+            points.push(POINTS.find(point => point.id == id));
         });
         this.showPoints(points);
     }
