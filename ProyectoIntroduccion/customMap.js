@@ -38,15 +38,14 @@ class CustomMap {
     getPointsInBounds() {
         const out = [];
         const bounds = this._map.getBounds();
-        let marker;
+        let element;
 
         for (let id in this._markers) {
-            marker = this._markers[id];
-            if (bounds.contains(marker.getPosition())) {
-                out.push(marker);
+            element = this._markers[id];
+            if (bounds.contains(element.marker.getPosition())) {
+                out.push(element);
             }
         }
-
         return out;
     }
 
@@ -61,72 +60,41 @@ class CustomMap {
         marker.setMap(this._map);
     }
 
-    /* Crea cada instancia de Marcador 🚩 */
-    _showMarker(point) {
-        const marker = new google.maps.Marker({
-            position: point,
-            map: this._map,
-        });
-
-        for (let point of points) {
-            this._showPoint(point);
-        }
-
-        /* Abre un diálogo en el mapa 🗺️ */
-        const infoWindow = new google.maps.InfoWindow({
-            content: `<div class="map-dialog"><h3 class="map-dialog-title">${point.title}</h3>
-            <img src="${point.image}" alt="${point.title}" class="map-point-image">
-            <p class="map-image-description">${point.description}</p>
-            </div>`,
-        });
-
-        google.maps.event.addListener(marker, "click", () => {
-            infoWindow.open(this._map, marker);
-        });
-
-    }
-
     _createPoint(point) {
         const id = point.lat + ":" + point.lng;
         let marker = this._markers[id];
- 
+
         if (!marker) {
             marker = new google.maps.Marker({
                 position: {
                     lat: point.lat,
-                    lng: point.lng
+                    lng: point.lng,
                 },
                 map: null,
                 title: point.title,
             });
         }
-
-        this._markers[id] = marker;
+        
+        this._markers[id] = { marker: marker, record: point };
 
         return marker;
     }
 
-    // _showPolygon(points) {
-    //     const polygon = new google.maps.Polygon({
-    //         paths: points,
-    //         strokeColor: "#FF0000",
-    //         strokeOpacity: 0.8,
-    //         strokeWeight: 2,
-    //         fillColor: "#FF0000",
-    //         fillOpacity: 0.35,
-    //     });
-    //     polygon.setMap(this._map);
-    // }
+    _createInfoWindow(point) {
+        const infoWindow = new google.maps.InfoWindow({
+            content: (
+                `<h3>${point.title}</h3>` +
+                `<div class="point-description">` +
+                `<p><b>Lat:</b> ${point.lat}</p>` +
+                `<p><b>Long:</b> ${point.lng}</p>` +
+                `<p class="item-info"><b>Info:</b> ${point.description}</p>` +
+                `</div>` +
+                `<div class="point-image">` +
+                `<img src="${point.image}" class="point-image">`
+            ),
+        });
 
+        return infoWindow;
+    }
 
-    // _showPolyline(points) {
-    //     const polyline = new google.maps.Polyline({
-    //         path: points,
-    //         geodesic: true,
-    //         strokeColor: "#FF0000",
-    //         strokeOpacity: 1.0,
-    //         strokeWeight: 2,
-    //     });
-    //     polyline.setMap(this._map);
-    // }
 }
