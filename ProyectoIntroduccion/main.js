@@ -14,6 +14,7 @@ function runMap() {
 	map = new CustomMap();
 	map.createPointId = createPointId;
 	map.showPoints(POINTS);
+	map.showPolygons(POLYGONS);
 }
 
 function createPointId(point) {

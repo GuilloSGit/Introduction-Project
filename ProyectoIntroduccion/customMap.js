@@ -8,9 +8,9 @@ class CustomMap {
     _create() {
         const map = new google.maps.Map(document.getElementById("map"), {
             zoom: 4,
-            center: { lat: -36.000, lng: -63.000 },
+            center: { lat: -36.000, lng: -62.000 },
             mapTypeId: "terrain",
-            maxZoom: 9,
+            maxZoom: 15,
             minZoom: 4,
         });
 
@@ -23,7 +23,7 @@ class CustomMap {
         let bounds = -1;
         let zoom = -1;
 
-        map.addListener("idle", () => { 
+        map.addListener("idle", () => {
             if (bounds + zoom > 1) {
                 bounds = 1;
                 zoom = 1;
@@ -33,6 +33,7 @@ class CustomMap {
 
         map.addListener("bounds_changed", () => { bounds += 1; });
         map.addListener("zoom_changed", () => { zoom += 1; });
+
     }
 
     getPointsInBounds() {
@@ -59,6 +60,12 @@ class CustomMap {
         }
     }
 
+    showPolygons(polygons) {
+        for (let polygon of polygons) {
+            this._showPolygon(polygon);
+        }
+    }
+
     _showPoint(point) {
         const marker = this._createPoint(point);
         marker.setMap(this._map);
@@ -78,7 +85,7 @@ class CustomMap {
                 title: point.title,
             });
         }
-        
+
         this._markers[id] = marker;
 
         return marker;
@@ -88,21 +95,21 @@ class CustomMap {
         return point.lat + ":" + point.lng;
     }
 
-    _createInfoWindow(point) {
-        const infoWindow = new google.maps.InfoWindow({
-            content: (
-                `<h3>${point.title}</h3>` +
-                `<div class="point-description">` +
-                `<p><b>Lat:</b> ${point.lat}</p>` +
-                `<p><b>Long:</b> ${point.lng}</p>` +
-                `<p class="item-info"><b>Info:</b> ${point.description}</p>` +
-                `</div>` +
-                `<div class="point-image">` +
-                `<img src="${point.image}" class="point-image">`
-            ),
+    _createPolygon(polygon) {
+        const polygonItem = new google.maps.Polygon({
+            paths:          [ polygon.paths ],
+            strokeColor:    polygon.strokeColor,
+            strokeOpacity:  polygon.strokeOpacity,
+            strokeWeight:   polygon.strokeWeight,
+            fillColor:      polygon.fillColor,
+            fillOpacity:    polygon.fillOpacity,
         });
+        return polygonItem;
+    }
 
-        return infoWindow;
+    _showPolygon() {
+        const polygon = this._createPolygon(polygon);
+        polygon.setMap(this._map);
     }
 
 }
