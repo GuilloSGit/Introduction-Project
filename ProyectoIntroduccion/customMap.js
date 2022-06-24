@@ -46,6 +46,9 @@ class CustomMap {
             if (bounds.contains(marker.getPosition())) {
                 out.push(id);
             }
+            // if(out.length < 1) {
+            //     this._showMessage("No hay puntos en el mapa");
+            // }
         }
         return out;
     }
@@ -97,7 +100,7 @@ class CustomMap {
 
     _createPolygon(polygon) {
         const polygonItem = new google.maps.Polygon({
-            paths:          [ polygon.paths ],
+            paths:          [ ...polygon.paths ],
             strokeColor:    polygon.strokeColor,
             strokeOpacity:  polygon.strokeOpacity,
             strokeWeight:   polygon.strokeWeight,
@@ -107,9 +110,9 @@ class CustomMap {
         return polygonItem;
     }
 
-    _showPolygon() {
-        const polygon = this._createPolygon(polygon);
-        polygon.setMap(this._map);
+    _showPolygon(polygon) {
+        const polygonItem = this._createPolygon(polygon);
+        polygonItem.setMap(this._map);
     }
 
 }

@@ -13,14 +13,25 @@ class CustomPanel {
     showPoints(points) {
         const list = document.getElementById("points");
         let li;
-
+        
         list.innerHTML = "";
+
+        if (points.length < 1) {
+            this._showPanelMessage("No hay puntos que mostrar en esta sección del mapa");
+        }
 
         for (let point of points) {
             li = document.createElement('li');
             list.appendChild(li);
             this._fillPoint(li, point);
         }
+    }
+
+    _showPanelMessage(message) {
+        const list = document.getElementById("points");
+        const li = document.createElement('li');
+        list.appendChild(li);
+        li.innerHTML = `<h3>${message}</h3>`;
     }
 
     _fillPoint(li, point) {
@@ -41,6 +52,8 @@ class CustomPanel {
         li.appendChild(div);
     }
 
+
+
     _boundsChanged(map) {
         const ids = map.getPointsInBounds();
         const points = [];
@@ -48,5 +61,10 @@ class CustomPanel {
             points.push(POINTS.find(point => point.id == id));
         });
         this.showPoints(points);
+    }
+
+    _showMessage(message) {
+        const list = document.getElementById("points");
+        list.innerHTML = message;
     }
 }
