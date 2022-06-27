@@ -13,11 +13,6 @@
   margin: 0;
   padding: 0;
 }
-#map {
-  height: 85vh;
-  width: 100%;
-  margin: 8px;
-}
 body {
   background-color: var(--mdc-theme-background);
   color: var(--mdc-theme-on-surface);
@@ -54,6 +49,9 @@ main {
 #map {
   margin-right: 10px;
   border-radius: 14px;
+  height: 84vh;
+  width: 100%;
+  margin: 8px;
 }
 aside {
   display: flex;
@@ -154,4 +152,12 @@ li {
   margin-top: 8px;
   font-variant: small-caps;
   font-size: 1.2em;
+}
+.panel-title {
+  font-size: 1.2em;
+  font-variant: small-caps;
+  padding: 10px;
+}
+ul>li:first-child {
+  margin-top: 10px;
 }

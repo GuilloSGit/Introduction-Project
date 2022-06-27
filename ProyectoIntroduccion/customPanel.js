@@ -1,4 +1,5 @@
 class CustomPanel {
+    
     constructor() {
         this._initialize();
     }
@@ -11,12 +12,12 @@ class CustomPanel {
     }
 
     showPoints(points, polygons) {
-        const list = document.getElementById("points");
+        const list = this._getList();
         let count = 0;
         let li;
-        
+
         list.innerHTML = "";
-        
+
         for (let point of points) {
             if (this._filter(point)) {
                 li = document.createElement('li');
@@ -35,28 +36,52 @@ class CustomPanel {
             }
         }
 
-        this._showPanelMessage(`
-        <b> Total</b>: ${POINTS.length + POLYGONS.length} registros<br/>
-        <br/>
-        <b>En pantalla</b>:<br/>
+        this._showTitle(`
+        Total: ${POINTS.length + POLYGONS.length} registros<br/>
+        En pantalla:
         ${points.length}
-        ${points.length === 1 ? "punto marcado" : "puntos marcados"} <br/>
+        ${points.length === 1 ? "punto marcado" : "puntos marcados"} /
         ${polygons.length}
-        ${polygons.length === 1 ? "área" : "áreas"}`);
-
+        ${polygons.length === 1 ? "área" : "áreas"}<hr/>`);
     }
 
     _filter(element) {
-        return true;
+        
     }
 
-    _showPanelMessage(message) {
-        const list = document.getElementById("points");
-        list.innerHTML = `<p>${message}</p>`;
+    _clear() {
+        this._getList().innerHTML = "";
+    }
+
+    _showTitle(message) {
+        this._getTitle().innerHTML = message;
+    }
+
+    _getTitle() {
+        return document.getElementById("panel").firstElementChild;
+    }
+
+    _getList() {
+        return document.getElementById("panel").lastElementChild;
+    }
+
+    _boundsChanged(map) {
+        const layers = map.getElementsInBounds();
+        let points = [];
+        let polygons = [];
+
+        for (let name in layers) {
+            switch (name) {
+                case "marker": points = this._findPoints(layers[name]); break;
+                case "polygon": polygons = this._findPolygons(layers[name]); break;
+                default: break;
+            }
+        }
+
+        this.showPoints(points, polygons);
     }
 
     _fillElement(li, element) {
-        /* Crear un div para cada ítem */
         var div = document.createElement('div');
         div.className = 'point';
         div.innerHTML = (
@@ -71,21 +96,6 @@ class CustomPanel {
         li.appendChild(div);
     }
 
-    _boundsChanged(map) {
-        const layers = map.getElementsInBounds();
-        let points = [];
-        let polygons = [];
-
-        for (let name in layers) {
-            switch(name) {
-            case "marker": points = this._findPoints(layers[name]); break;
-            case "polygon": polygons = this._findPolygons(layers[name]); break;
-            }
-        }
-
-        this.showPoints(points, polygons);
-    }
-
     _findPoints(list) {
         const out = [];
         list.forEach(id => out.push(POINTS.find(point => point.id == id)));
@@ -98,8 +108,4 @@ class CustomPanel {
         return out;
     }
 
-    _showMessage(message) {
-        const list = document.getElementById("points");
-        list.innerHTML = message;
-    }
 }

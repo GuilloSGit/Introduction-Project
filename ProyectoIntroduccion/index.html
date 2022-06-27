@@ -25,20 +25,21 @@
             <source srcset="./images/logo.webp" type="image/webp">
             <img class="logo" src="./images/logo.png" alt="logo">
         </picture>
-        <h3 class="pageTitle">Trabajando con Google Maps</h3>
+        <h3 class="pageTitle">Practicando con Google Maps</h3>
     </nav>
-    <!--The div element for the map -->
     <main>
         <div id="map"></div>
         <aside id="panel" class="pointsPanel">
-            <ul id="points">
-                <!-- points imported from points.js -->
-            </ul>
+            <h5 class="panel-title"></h5>
+            <!-- create an input to filter elements -->
+            <div class="">
+                <input type="text" id="filter" placeholder="Buscar...">
+                <input type="button" id="clearFilter" value="Limpiar">
+            </div>
+            <ul></ul>
         </aside>
     </main>
-
-    <script src="https://maps.googleapis.com/maps/api/js?callback=runMap" defer>
-    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?callback=runMap" defer></script>
 </body>
 
 </html>

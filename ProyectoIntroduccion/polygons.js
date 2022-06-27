@@ -1,6 +1,6 @@
 var POLYGONS = [
     {
-        id: "A",
+        id: "1",
         title: 'Blandengues',
         paths: [
             { lat: -34.4295264, lng: -61.1819684 },
@@ -14,10 +14,10 @@ var POLYGONS = [
         fillColor: "#ff88fb",
         fillOpacity: 0.35,
         image: "https://iso.500px.com/wp-content/uploads/2014/07/big-one.jpg",
-        description: 'Blandengues is a mountain range in the center of the country.'
+        description: 'Blandengues es una estación ferroviaria ubicada en la localidad del mismo nombre, partido de Partido de Junín, Provincia de Buenos Aires, Argentina.'
     },
     {
-        id: "C",
+        id: "2",
         title: 'Península Valdez',
         paths: [
             { lat: -42.911, lng: -63.3819684 },
@@ -30,11 +30,11 @@ var POLYGONS = [
         strokeWeight: 2,
         fillColor: "#00ffF0",
         fillOpacity: 0.35,
-        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrup7BeW3YGEiuL9NtXkKzLt7Cmwl03mB1e2BF1e9qLDybITB5tI3zOYeWyp4d9lThvVw&usqp=CAU",
-        description: 'Blandengues is a mountain range in the center of the country.'
+        image: "https://pxb.cdn.elchubut.com.ar/chubut/102020/1602969092867.webp?cw=1315&ch=749&extw=jpg",
+        description: 'Accidente costero sobre el mar Argentino, en la provincia del Chubut, Argentina. Actualmente es uno de los nueve Patrimonios de la Humanidad declarado por la Unesco en Argentina. Presenta una porción de tierra de contorno casi cuadrangular unida al continente por el istmo Carlos Ameghino.'
     },
     {
-        id: "D",
+        id: "3",
         title: 'Islas Malvinas',
         paths: [
             { lat: -52.5995264, lng: -62.3819684 },
@@ -47,7 +47,7 @@ var POLYGONS = [
         strokeWeight: 2,
         fillColor: "#f6ffFF",
         fillOpacity: 0.35,
-        image: "https://mymodernmet.com/wp/wp-content/uploads/2020/02/international-landscape-photographer-of-the-year-thumbnail.jpg",
-        description: 'Blandengues is a mountain range in the center of the country.'
+        image: "https://www.primeraedicion.com.ar/wp-content/uploads/2022/06/Malvinas-dia-de-la-reafirmacion-de-los-derechos-sobre-las-islas-09-06-2022.jpg",
+        description: 'Las Islas Malvinas (en inglés, Falkland Islands) son un archipiélago de América del Sur, situado en el mar argentino que es un mar epicontinental del océano Atlántico Sur adyacente a dicho país, a unos 500 km de la costa.'
     }
 ];

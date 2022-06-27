@@ -1,6 +1,3 @@
 class CustomPanelElements {
-    constructor() {
-
-    }
 
 }
