@@ -26,7 +26,7 @@ class CustomPanel {
             }
         }
 
-        this._showPanelMessage(`En el mapa hay ${ points.length } y filtrados ${ count } de un total de ${ POINTS.length } registros`);
+        this._showPanelMessage(`En el mapa se ven ${ points.length + polygons.length} puntos marcados, de un total de ${ POINTS.length + POLYGONS.length } registros`);
 
     }
 
@@ -53,8 +53,9 @@ class CustomPanel {
             `<div class="point-image">` +
             `<img src="${point.image}" class="point-image">`
         );
-        /* Incorporando cada ítem con el método appendChild al HTML */
+
         li.appendChild(div);
+
     }
 
     _boundsChanged(map) {

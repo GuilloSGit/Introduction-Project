@@ -81,7 +81,6 @@ class CustomMapPolygons extends CustomMapElements {
     create(attributes) {
         const polygon = new CustomMapPolygon(this.map);
         polygon.create(attributes);
-        console.log(polygon)
         return polygon;
     }
 
