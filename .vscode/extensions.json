@@ -1,0 +1,11 @@
+{
+    "recommendations": [
+        "ms-vsliveshare.vsliveshare-pack",
+        "ms-vsliveshare.vsliveshare-audio",
+        "ms-vsliveshare.vsliveshare",
+        "codemooseus.vscode-devtools-for-chrome",
+        "dbaeumer.vscode-eslint",
+        "mhutchie.git-graph",
+        "mintlify.document"
+    ]
+}

@@ -12,26 +12,31 @@ class CustomPanel {
 
     showPoints(points) {
         const list = document.getElementById("points");
+        let count = 0;
         let li;
         
         list.innerHTML = "";
-
-        if (points.length < 1) {
-            this._showPanelMessage("No hay puntos que mostrar en esta sección del mapa");
-        }
-
+        
         for (let point of points) {
-            li = document.createElement('li');
-            list.appendChild(li);
-            this._fillPoint(li, point);
+            if (this._filter(point)) {
+                li = document.createElement('li');
+                list.appendChild(li);
+                this._fillPoint(li, point);
+                count += 1;
+            }
         }
+
+        this._showPanelMessage(`En el mapa hay ${ points.length } y filtrados ${ count } de un total de ${ POINTS.length } registros`);
+
+    }
+
+    _filter(point) {
+        return true;
     }
 
     _showPanelMessage(message) {
         const list = document.getElementById("points");
-        const li = document.createElement('li');
-        list.appendChild(li);
-        li.innerHTML = `<h3>${message}</h3>`;
+        list.innerHTML = `<h3>${message}</h3>`;
     }
 
     _fillPoint(li, point) {
@@ -52,10 +57,8 @@ class CustomPanel {
         li.appendChild(div);
     }
 
-
-
     _boundsChanged(map) {
-        const ids = map.getPointsInBounds();
+        const ids = map.getElementsInBounds();
         const points = [];
         ids.forEach(id => {
             points.push(POINTS.find(point => point.id == id));

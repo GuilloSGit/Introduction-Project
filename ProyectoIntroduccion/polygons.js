@@ -2,6 +2,8 @@ var POLYGONS = [
     {
         id: "A",
         title: 'Blandengues',
+        lat: -34.5995264,
+        lng: -58.3819684,
         paths: [
             { lat: -34.4295264, lng: -61.1819684 },
             { lat: -34.4295264, lng: -61.3819684 },
@@ -12,11 +14,15 @@ var POLYGONS = [
         strokeOpacity: 0.8,
         strokeWeight: 2,
         fillColor: "#ff88fb",
-        fillOpacity: 0.35
+        fillOpacity: 0.35,
+        image: "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png",
+        description: 'Blandengues is a mountain range in the center of the country.'
     },
     {
         id: "C",
         title: 'Península Valdez',
+        lat: -34.5995264,
+        lng: -58.3819684,
         paths: [
             { lat: -42.911, lng: -63.3819684 },
             { lat: -42.911, lng: -65.3819684 },
@@ -27,11 +33,15 @@ var POLYGONS = [
         strokeOpacity: 0.8,
         strokeWeight: 2,
         fillColor: "#00ffF0",
-        fillOpacity: 0.35
+        fillOpacity: 0.35,
+        image: "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png",
+        description: 'Blandengues is a mountain range in the center of the country.'
     },
     {
         id: "D",
         title: 'Islas Malvinas',
+        lat: -34.5995264,
+        lng: -58.3819684,
         paths: [
             { lat: -52.5995264, lng: -62.3819684 },
             { lat: -52.5995264, lng: -56.3819684 },
@@ -42,6 +52,8 @@ var POLYGONS = [
         strokeOpacity: 0.8,
         strokeWeight: 2,
         fillColor: "#f6ffFF",
-        fillOpacity: 0.35
+        fillOpacity: 0.35,
+        image: "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png",
+        description: 'Blandengues is a mountain range in the center of the country.'
     }
 ];

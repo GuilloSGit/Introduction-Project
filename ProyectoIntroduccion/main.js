@@ -12,9 +12,16 @@ function runPanel() {
 
 function runMap() {
 	map = new CustomMap();
-	map.createPointId = createPointId;
-	map.showPoints(POINTS);
-	map.showPolygons(POLYGONS);
+
+	const markers = new CustomMapMarkers();
+	map.addLayer(markers);
+	markers.add(POINTS);
+	markers.show();
+
+	const polygons = new CustomMapPolygons();
+	map.addLayer(polygons);
+	polygons.add(POLYGONS);
+	polygons.show();
 }
 
 function createPointId(point) {

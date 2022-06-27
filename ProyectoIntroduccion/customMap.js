@@ -2,7 +2,16 @@
 class CustomMap {
     constructor() {
         this._map = this._create();
-        this._markers = {};
+        this._layers = [];
+    }
+
+    getMap() {
+        return this._map;
+    }
+
+    addLayer(layer) {
+        layer.setMap(this._map);
+        this._layers.push(layer);
     }
 
     _create() {
@@ -33,86 +42,17 @@ class CustomMap {
 
         map.addListener("bounds_changed", () => { bounds += 1; });
         map.addListener("zoom_changed", () => { zoom += 1; });
-
+        
     }
 
-    getPointsInBounds() {
-        const out = [];
+    getElementsInBounds() {
+        let out = [];
         const bounds = this._map.getBounds();
-        let marker;
 
-        for (let id in this._markers) {
-            marker = this._markers[id];
-            if (bounds.contains(marker.getPosition())) {
-                out.push(id);
-            }
-            // if(out.length < 1) {
-            //     this._showMessage("No hay puntos en el mapa");
-            // }
+        for (let layer of this._layers) {
+            out = out.concat(layer.getElementsInBounds(bounds));
         }
+    
         return out;
     }
-
-    getPointById(id) {
-        return this._markers[id];
-    }
-
-    showPoints(points) {
-        for (let point of points) {
-            this._showPoint(point);
-        }
-    }
-
-    showPolygons(polygons) {
-        for (let polygon of polygons) {
-            this._showPolygon(polygon);
-        }
-    }
-
-    _showPoint(point) {
-        const marker = this._createPoint(point);
-        marker.setMap(this._map);
-    }
-
-    _createPoint(point) {
-        const id = this.createPointId(point);
-        let marker = this._markers[id];
-
-        if (!marker) {
-            marker = new google.maps.Marker({
-                position: {
-                    lat: point.lat,
-                    lng: point.lng,
-                },
-                map: null,
-                title: point.title,
-            });
-        }
-
-        this._markers[id] = marker;
-
-        return marker;
-    }
-
-    createPointId(point) {
-        return point.lat + ":" + point.lng;
-    }
-
-    _createPolygon(polygon) {
-        const polygonItem = new google.maps.Polygon({
-            paths:          [ ...polygon.paths ],
-            strokeColor:    polygon.strokeColor,
-            strokeOpacity:  polygon.strokeOpacity,
-            strokeWeight:   polygon.strokeWeight,
-            fillColor:      polygon.fillColor,
-            fillOpacity:    polygon.fillOpacity,
-        });
-        return polygonItem;
-    }
-
-    _showPolygon(polygon) {
-        const polygonItem = this._createPolygon(polygon);
-        polygonItem.setMap(this._map);
-    }
-
 }
