@@ -2,8 +2,6 @@ var POLYGONS = [
     {
         id: "A",
         title: 'Blandengues',
-        lat: -34.5995264,
-        lng: -58.3819684,
         paths: [
             { lat: -34.4295264, lng: -61.1819684 },
             { lat: -34.4295264, lng: -61.3819684 },
@@ -15,14 +13,12 @@ var POLYGONS = [
         strokeWeight: 2,
         fillColor: "#ff88fb",
         fillOpacity: 0.35,
-        image: "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png",
+        image: "https://iso.500px.com/wp-content/uploads/2014/07/big-one.jpg",
         description: 'Blandengues is a mountain range in the center of the country.'
     },
     {
         id: "C",
         title: 'Península Valdez',
-        lat: -34.5995264,
-        lng: -58.3819684,
         paths: [
             { lat: -42.911, lng: -63.3819684 },
             { lat: -42.911, lng: -65.3819684 },
@@ -34,14 +30,12 @@ var POLYGONS = [
         strokeWeight: 2,
         fillColor: "#00ffF0",
         fillOpacity: 0.35,
-        image: "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrup7BeW3YGEiuL9NtXkKzLt7Cmwl03mB1e2BF1e9qLDybITB5tI3zOYeWyp4d9lThvVw&usqp=CAU",
         description: 'Blandengues is a mountain range in the center of the country.'
     },
     {
         id: "D",
         title: 'Islas Malvinas',
-        lat: -34.5995264,
-        lng: -58.3819684,
         paths: [
             { lat: -52.5995264, lng: -62.3819684 },
             { lat: -52.5995264, lng: -56.3819684 },
@@ -53,7 +47,7 @@ var POLYGONS = [
         strokeWeight: 2,
         fillColor: "#f6ffFF",
         fillOpacity: 0.35,
-        image: "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png",
+        image: "https://mymodernmet.com/wp/wp-content/uploads/2020/02/international-landscape-photographer-of-the-year-thumbnail.jpg",
         description: 'Blandengues is a mountain range in the center of the country.'
     }
 ];

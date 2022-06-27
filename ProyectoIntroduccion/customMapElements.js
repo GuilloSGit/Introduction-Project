@@ -84,7 +84,17 @@ class CustomMapPolygons extends CustomMapElements {
         return polygon;
     }
 
-    getElementsInBounds() { return []; }
+    getElementsInBounds() {
+        const out = [];
+
+        for (let id in this._elements) {
+            if (this._elements[id].getBounds().contains(this.map.getCenter())) {
+                out.push(id);
+            }
+        }
+
+        return out;
+    }
 }
 
 

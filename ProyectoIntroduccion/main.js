@@ -7,7 +7,7 @@ function run() {
 
 function runPanel() {
 	panel = new CustomPanel();
-	panel.showPoints(POINTS);
+	panel.showPoints(POINTS, POLYGONS);
 }
 
 function runMap() {
