@@ -35,7 +35,14 @@ class CustomPanel {
             }
         }
 
-        this._showPanelMessage(`En el mapa se ven ${ points.length + polygons.length } puntos marcados, de un total de ${ POINTS.length + POLYGONS.length } registros`);
+        this._showPanelMessage(`
+        <b> Total</b>: ${POINTS.length + POLYGONS.length} registros<br/>
+        <br/>
+        <b>En pantalla</b>:<br/>
+        ${points.length}
+        ${points.length === 1 ? "punto marcado" : "puntos marcados"} <br/>
+        ${polygons.length}
+        ${polygons.length === 1 ? "área" : "áreas"}`);
 
     }
 
@@ -45,7 +52,7 @@ class CustomPanel {
 
     _showPanelMessage(message) {
         const list = document.getElementById("points");
-        list.innerHTML = `<h3>${message}</h3>`;
+        list.innerHTML = `<p>${message}</p>`;
     }
 
     _fillElement(li, element) {
@@ -62,23 +69,33 @@ class CustomPanel {
         );
 
         li.appendChild(div);
-
     }
 
     _boundsChanged(map) {
-        const ids = map.getElementsInBounds();
-        const points = [];
-        const polygons = [];
-        
-        const elements = points.concat(polygons);
+        const layers = map.getElementsInBounds();
+        let points = [];
+        let polygons = [];
 
-        ids.forEach(id => {
-            points.push(POINTS.find(point => point.id == id));
-            polygons.push(POLYGONS.find(polygon => polygon.id == id));
-        });
+        for (let name in layers) {
+            switch(name) {
+            case "marker": points = this._findPoints(layers[name]); break;
+            case "polygon": polygons = this._findPolygons(layers[name]); break;
+            }
+        }
 
-        this.showPoints(elements);
+        this.showPoints(points, polygons);
+    }
 
+    _findPoints(list) {
+        const out = [];
+        list.forEach(id => out.push(POINTS.find(point => point.id == id)));
+        return out;
+    }
+
+    _findPolygons(list) {
+        const out = [];
+        list.forEach(id => out.push(POLYGONS.find(polygon => polygon.id == id)));
+        return out;
     }
 
     _showMessage(message) {

@@ -46,11 +46,11 @@ class CustomMap {
     }
 
     getElementsInBounds() {
-        let out = [];
+        let out = {};
         const bounds = this._map.getBounds();
 
         for (let layer of this._layers) {
-            out = out.concat(layer.getElementsInBounds(bounds));
+            out[layer.type] = layer.getElementsInBounds(bounds);
         }
     
         return out;

@@ -84,11 +84,11 @@ class CustomMapPolygons extends CustomMapElements {
         return polygon;
     }
 
-    getElementsInBounds() {
+    getElementsInBounds(bounds) {
         const out = [];
 
         for (let id in this._elements) {
-            if (this._elements[id].getBounds().contains(this.map.getCenter())) {
+            if (bounds.intersects(this._elements[id].getBounds())) {
                 out.push(id);
             }
         }
@@ -144,5 +144,20 @@ class CustomMapPolygon extends CustomMapElement {
             fillColor: attributes.fillColor,
             fillOpacity: attributes.fillOpacity,
         });
+    }
+
+    getBounds() {
+        const path = this.instance.getPath().getArray();
+        const bounds = new google.maps.LatLngBounds();
+
+        for (let point of path) {
+            bounds.extend(point);
+        }
+
+        return bounds;
+    }
+
+    getPosition() {
+        return this.instance.getCenter();
     }
 }
