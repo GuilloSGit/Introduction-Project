@@ -1,5 +1,4 @@
 class CustomPanel {
-    
     constructor() {
         this._initialize();
     }
@@ -46,7 +45,7 @@ class CustomPanel {
     }
 
     _filter(element) {
-        
+        console.log(element);
     }
 
     _clear() {

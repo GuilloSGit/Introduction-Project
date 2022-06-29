@@ -7,6 +7,8 @@
     <meta name="description" content="Practice for the Induction">
     <meta name="keywords" content="HTML, CSS, JavaScript, Maps, Markers, Practice, Job">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- import fontawesome CDN -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="icon" href="./images/map-icon.ico">
     <link rel="stylesheet" type="text/css" href="./style.css" />
     <script type="text/javascript" src="./points.js"></script>
@@ -31,10 +33,11 @@
         <div id="map"></div>
         <aside id="panel" class="pointsPanel">
             <h5 class="panel-title"></h5>
-            <!-- create an input to filter elements -->
-            <div class="">
-                <input type="text" id="filter" placeholder="Buscar...">
-                <input type="button" id="clearFilter" value="Limpiar">
+            <div class="search-box">
+                <input class="search-input" type="text" name="" placeholder="Buscar...">
+                <a href="#" class="search-btn">
+                    <span class="magnifier">🔍</span>
+                </a>
             </div>
             <ul></ul>
         </aside>

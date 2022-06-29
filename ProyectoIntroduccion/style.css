@@ -66,9 +66,8 @@ aside {
   overflow: scroll;
   scrollbar-color: red blue;
   scrollbar-width: 120px;
-
 }
-.pageTitle{
+.pageTitle {
   font-size: 1.7em;
   font-weight: bold;
   margin-left: 15px;
@@ -102,14 +101,14 @@ li {
   flex-wrap: wrap;
   margin-bottom: 20px;
 }
-.point > h3 { /* Title */
+.point > h3 {
   margin: 3px 0px;
   padding: 4px 8px;
   width: 100%;
   background-color: rgb(86, 82, 82);
   color: aliceblue;
 }
-.point-description { /* Description */
+.point-description {
   margin: 10px 5px;
   padding: 4px 8px;
   width: 55%;
@@ -140,7 +139,7 @@ li {
   justify-content: center;
 }
 .map-dialog-title {
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-size: 1.2em;
 }
 .pointLatAndLng {
@@ -158,6 +157,38 @@ li {
   font-variant: small-caps;
   padding: 10px;
 }
-ul>li:first-child {
+ul > li:first-child {
   margin-top: 10px;
+}
+.search-box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-left: 5%;
+}
+.search-input {
+  width: 350px;
+  line-height: 1.8;
+  padding: 5px;
+  border-radius: 8px 0 0 8px;
+}
+.search-btn {
+  color: #FFF;
+  background-color: #dfcdc5;
+  padding: 0 8px;
+  line-height: 2;
+  border-radius: 0 8px 8px 0;
+  font-size: 1.2em;
+  font-weight: bold;
+  border: 2px solid #000;
+  outline: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+input[type=text] {
+  background-color: #f7f4eb;
+  color: rgb(36, 27, 27);
+  font-weight: 600;
+  font-variant: small-caps;
 }

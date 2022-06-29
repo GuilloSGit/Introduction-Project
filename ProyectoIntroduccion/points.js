@@ -1,19 +1,11 @@
 var POINTS = [
     {
-        id: "A",
-        title: 'Odea Office',
-        lat: -34.5995264,
-        lng: -58.3819684,
-        image: 'https://streetviewpixels-pa.googleapis.com/v1/thumbnail?output=thumbnail&cb_client=maps_sv.tactile.gps&panoid=eckj4oxWsIMmJIyRdmW0fQ&w=588&h=290&thumb=2&yaw=312.0528&pitch=0',
-        description: 'Odea is a Software Company that develops software for the web and mobile devices.'
-    },
-    {
         id: "B",
         title: 'Valle de la Luna',
         lat: -30.16380592375114,
         lng: -67.8469786709814,
         image: 'https://lh5.googleusercontent.com/p/AF1QipNctUMlT_l4wR07omzWh1hfEa_rv-CeWkFGIhiv=s435-k-no',
-        description: 'Valle de la Luna is a mountain range in the center of the country.'
+        description: 'Se ubica en el noroeste de Argentina, en la Provincia de San Juan. Sus paisajes desérticos similares a la superficie lunar tienen formaciones rocosas impresionantes en áreas como el “Valle Pintado” y la “Cancha de Bochas”.'
     },
     {
         id: "C",
