@@ -45,8 +45,15 @@ class CustomPanel {
     }
 
     _filter(element) {
-        console.log(element);
+        let elements = [];
+        elements = [...elements, element];
+        return elements
     }
+
+    _search(search) {
+        let element = document.getElementById(search.value);
+    }
+
 
     _clear() {
         this._getList().innerHTML = "";
