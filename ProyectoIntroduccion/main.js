@@ -27,3 +27,7 @@ function runMap() {
 function createPointId(point) {
 	return point.id;
 }
+
+function search() {
+	panel._filter();
+}

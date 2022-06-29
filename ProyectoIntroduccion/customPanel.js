@@ -17,8 +17,9 @@ class CustomPanel {
 
         list.innerHTML = "";
 
+        points = this._filter()
         for (let point of points) {
-            if (this._filter(point)) {
+            if (point) {
                 li = document.createElement('li');
                 list.appendChild(li);
                 this._fillElement(li, point);
@@ -26,8 +27,9 @@ class CustomPanel {
             }
         }
 
+        polygons = this._filter()
         for (let polygon of polygons) {
-            if (this._filter(polygon)) {
+            if (polygon) {
                 li = document.createElement('li');
                 list.appendChild(li);
                 this._fillElement(li, polygon);
@@ -45,15 +47,25 @@ class CustomPanel {
     }
 
     _filter(element) {
-        let elements = [];
-        elements = [...elements, element];
-        return elements
+        const search = this._getSearchValue();
+        let result = [
+            ...POINTS,
+            ...POLYGONS
+        ];
+        if (search) {
+            result = result.filter(record => {
+                result =    record.title.toLowerCase().includes(search.toLowerCase()) ||
+                            record.description.toLowerCase().includes(search.toLowerCase()) ||
+                            record.id.toLowerCase().includes(search.toLowerCase());
+                return result;
+            });
+        }
+        return result;
     }
 
-    _search(search) {
-        let element = document.getElementById(search.value);
+    _getSearchValue() {
+        return document.getElementById("search").value;
     }
-
 
     _clear() {
         this._getList().innerHTML = "";
