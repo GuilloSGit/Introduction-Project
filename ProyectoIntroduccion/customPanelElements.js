@@ -52,3 +52,12 @@ class CustomPanelMarker extends CustomPanelElements {
 
 }
 
+class CustomPanelPolygon extends CustomPanelElements {
+    constructor() {
+
+    }
+
+    _showPoints(){}
+
+}
+

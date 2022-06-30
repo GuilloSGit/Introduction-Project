@@ -168,17 +168,16 @@ ul > li:first-child {
   margin-left: 5%;
 }
 .search-input {
-  width: 350px;
+  width: 335px;
   line-height: 1.8;
   padding: 5px;
   border-radius: 8px 0 0 8px;
 }
 .search-btn {
   color: #FFF;
-  background-color: #dfcdc5;
+  background-color: #4c86f1;
   padding: 0 8px;
-  line-height: 2;
-  border-radius: 0 8px 8px 0;
+  line-height: 2.03;
   font-size: 1.2em;
   font-weight: bold;
   border: 2px solid #000;
@@ -187,8 +186,21 @@ ul > li:first-child {
   text-decoration: none;
 }
 input[type=text] {
-  background-color: #f7f4eb;
+  background-color: #ebf3f7;
   color: rgb(36, 27, 27);
   font-weight: 600;
   font-variant: small-caps;
+}
+.search-clear {
+  color: #FFF;
+  background-color: #f77979;
+  padding: 0 8px;
+  line-height: 2.03;
+  font-size: 1.2em;
+  font-weight: bold;
+  border: 2px solid #000;
+  outline: none;
+  cursor: pointer;
+  text-decoration: none;
+  border-radius: 0 8px 8px 0;
 }

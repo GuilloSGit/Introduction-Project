@@ -14,10 +14,9 @@ class CustomPanel {
         const list = this._getList();
         let count = 0;
         let li;
-
+        
         list.innerHTML = "";
-
-        points = this._filter()
+        
         for (let point of points) {
             if (point) {
                 li = document.createElement('li');
@@ -26,8 +25,7 @@ class CustomPanel {
                 count += 1;
             }
         }
-
-        polygons = this._filter()
+        
         for (let polygon of polygons) {
             if (polygon) {
                 li = document.createElement('li');
@@ -36,7 +34,7 @@ class CustomPanel {
                 count += 1;
             }
         }
-
+        
         this._showTitle(`
         Total: ${POINTS.length + POLYGONS.length} registros<br/>
         En pantalla:
@@ -45,22 +43,27 @@ class CustomPanel {
         ${polygons.length}
         ${polygons.length === 1 ? "área" : "áreas"}<hr/>`);
     }
-
-    _filter(element) {
+    
+    _filter(records) {
+        const list = this._getList();
+        list.innerHTML = "";
         const search = this._getSearchValue();
         let result = [
             ...POINTS,
             ...POLYGONS
         ];
-        if (search) {
+        if (search !== "") {
             result = result.filter(record => {
-                result =    record.title.toLowerCase().includes(search.toLowerCase()) ||
-                            record.description.toLowerCase().includes(search.toLowerCase()) ||
-                            record.id.toLowerCase().includes(search.toLowerCase());
+                result = record.title.toLowerCase().includes(search.toLowerCase()) || record.description.toLowerCase().includes(search.toLowerCase()) || record.id.toLowerCase().includes(search.toLowerCase());
                 return result;
             });
         }
-        return result;
+        const answer = document.createElement('p');
+        answer.innerHTML = `Encontrados: ${result.length}`;
+        list.appendChild(answer);
+        result.map(record => {
+            this._fillElement(list, record);
+        });
     }
 
     _getSearchValue() {
@@ -103,7 +106,7 @@ class CustomPanel {
         var div = document.createElement('div');
         div.className = 'point';
         div.innerHTML = (
-            `<h3>${element.title}</h3>` +
+            `<h3 key="${element.id}">${element.title}</h3>` +
             `<div class="point-description">` +
             `<p class="item-info"><b>Info:</b> ${element.description}</p>` +
             `</div>` +

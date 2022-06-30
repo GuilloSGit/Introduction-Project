@@ -115,7 +115,6 @@ class CustomMapElement {
     }
 }
 
-
 class CustomMapMarker extends CustomMapElement {
     create(attributes) {
         this.instance = new google.maps.Marker({
@@ -153,7 +152,6 @@ class CustomMapPolygon extends CustomMapElement {
         for (let point of path) {
             bounds.extend(point);
         }
-
         return bounds;
     }
 

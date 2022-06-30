@@ -31,3 +31,8 @@ function createPointId(point) {
 function search() {
 	panel._filter();
 }
+
+function clearSearchInput() {
+	document.getElementById("search").value = "";
+	panel.showPoints(POINTS, POLYGONS);
+}
