@@ -33,6 +33,11 @@
         <div id="map"></div>
         <aside id="panel" class="pointsPanel">
             <h5 class="panel-title"></h5>
+            <span>
+                <button class="btn-create" onclick="createNewPoint()">
+                    <i class="fas fa-plus"></i>
+                </button>
+            </span>
             <div class="search-box">
                 <input class="search-input" type="text" name="" placeholder="Buscar..." id="search" onchange="search()">
                 <button class="search-btn" onclick="search()">
@@ -45,6 +50,28 @@
             <ul></ul>
         </aside>
     </main>
+    <!-- render dialog when map is clicked -->
+    <dialog id="dialog">
+        <h3>Crear nuevo punto</h3>
+        <form method="dialog">
+            <label for="name">Nombre</label>
+            <input type="text" name="title" id="title" placeholder="Nombre">
+            <label for="description">Descripción</label>
+            <textarea name="description" id="description" cols="30" rows="10" placeholder="Descripción"></textarea>
+            <label for="lat">Latitud</label>
+            <input type="text" name="lat" id="lat" placeholder="Latitud">
+            <label for="lng">Longitud</label>
+            <input type="text" name="lng" id="lng" placeholder="Longitud">
+            <label for="type">Tipo</label>
+            <select name="type" id="type">
+                <option value="0">Punto</option>
+                <option value="1">Polígono</option>
+            </select>
+            <button class="btn-create" onclick="createPoint()">
+                <i class="fas fa-plus"></i>
+            </button>
+        </form>
+    </dialog>
     <script src="https://maps.googleapis.com/maps/api/js?callback=runMap" defer></script>
 </body>
 

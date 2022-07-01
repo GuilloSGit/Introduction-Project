@@ -129,4 +129,23 @@ class CustomPanel {
         return out;
     }
 
+    createNewElement(element) {
+        const list = this._getList();
+        const li = document.createElement('li');
+        list.appendChild(li);
+        this._fillElement(li, element);
+        this.saveToLocalStorage();
+    }
+
+    deleteElement(element) {
+        const list = this._getList();
+        const li = list.querySelector(`[key="${element.id}"]`);
+        list.removeChild(li);
+    }
+
+    saveToLocalStorage() {
+        localStorage.setItem("points", JSON.stringify(POINTS));
+        localStorage.setItem("polygons", JSON.stringify(POLYGONS));
+    }
+
 }

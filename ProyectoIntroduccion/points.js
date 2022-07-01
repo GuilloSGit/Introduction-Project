@@ -110,5 +110,69 @@ var POINTS = [
         lng: -65.0955306,
         image: 'https://lh5.googleusercontent.com/p/AF1QipOlFvHpoqO4Qn2TOgx2rfjOo2cjxTUGM_ZGr_Or=w408-h544-k-no',
         description: 'Las Grutas es un concurrido balneario argentino del Golfo de San Matías, en el norte de la Patagonia. Sus largas playas están resguardadas por acantilados llenos de cuevas.'
+    },
+    {
+        id: "P",
+        title: 'Caracas',
+        lat: 10.4683841,
+        lng: -66.9604058,
+        image: 'https://lh5.googleusercontent.com/p/AF1QipObp9jWCsmF38jjd8QaE-hgqPXpwOD3aUGrBFit=w408-h510-k-no',
+        description: 'Caracas, la capital de Venezuela, es un centro comercial y cultural ubicado en un valle montañoso del norte. El líder independentista Simón Bolívar está enterrado en el Panteón Nacional de Venezuela, establecido en el siglo XIX en el casco antiguo de la ciudad.'
+    },
+    {
+        id: "Q",
+        title: 'Ciudad de Panamá',
+        lat: 8.99,
+        lng: -79.5,
+        image: 'https://lh5.googleusercontent.com/p/AF1QipODDCk9n6bSx1Gus4UxgFC0qWQdl1oe6LOifMkf=w408-h510-k-no',
+        description: 'Ciudad de Panamá, la capital de Panamá, es una ciudad moderna enmarcada por el Océano Pacífico y el Canal de Panamá hecho por el hombre.'
+    },
+    {
+        id: "R",
+        title: 'Ciudad de Nicaragua',
+        lat: 12.1330407,
+        lng: -86.2419056,
+        image: 'https://lh5.googleusercontent.com/p/AF1QipMfWB7qWt93UNu8xy6DJx0GnN_n5-3EWK34TA3-=w532-h240-k-no',
+        description: 'Managua, en la orilla sur del lago Managua, es la ciudad capital de Nicaragua. Su catedral, un cascarón desde el terremoto de 1972, está en la Plaza de la Revolución.'
+    },
+    {
+        id: "S",
+        title: 'Toronto',
+        lat: 43.6532,
+        lng: -79.3832,
+        image: 'https://lh5.googleusercontent.com/p/AF1QipNFh-gOplTK-qYVrnIQdsgNzkTXlOEs2gC8b5xd=w408-h510-k-no',
+        description: 'Toronto es una ciudad y capital de Canadá. Está situada en la provincia del Ontario, en el norte de la isla de Ontario, en el océano Atlántico.'
+    },
+    {
+        id: "T",
+        title: 'Angola',
+        lat: -12.5,
+        lng: 18.5,
+        image: 'https://lh5.googleusercontent.com/p/AF1QipNpiyoRUJ14Fejjd5jeqSRxKPgl9mO5Tus5_v6Y=w408-h272-k-no',
+        description: 'Angola es un país soberano de África que se encuentra en el continente africano. Su capital es Luanda.'
+    },
+    {
+        id: "U",
+        title: 'Djibouti',
+        lat: 11.865,
+        lng: 42.825,
+        image: 'https://lh3.googleusercontent.com/proxy/HezbpEuDW0lmMUdDte3_V88AHQzyn3lV6dyexIlBPLxoFDZkG1Es5gRdSplV59gjoa0S3jqRnkhrfnkNYRrtc-MKqXekJmTbNGN1D0TkYEG_OvS3k4IJlyvyolCzpb5C0_hqFju9BYdCcF_Lu5cwQcurJexuV1Y=w408-h272-k-no',
+        description: 'Djibouti es un país situado en el continente africano. Su capital es Djibouti.'
+    },
+    {
+        id: "V",
+        title: 'Macassar',
+        lat: -5.1114895,
+        lng: 119.4327314,
+        image: 'https://lh5.googleusercontent.com/p/AF1QipPcwV-DpZyCUdJ8VMbc_x0GDvpYSgt3p-6bE_GF=w408-h510-k-no',
+        description: 'Macasar es una ciudad y capital de la República de Costa de Marfil. Su catedral es la catedral de la ciudad.'
+    },
+    {
+        id: "W",
+        title: 'Isla de Pascua',
+        lat: -27.113783,
+        lng: -109.362365,
+        image: 'https://lh5.googleusercontent.com/p/AF1QipP10v2mZkdjZPjIJM3w1NmY6ie67rv04HRvTyHb=w408-h272-k-no',
+        description: 'Isla de Pascua es una isla de Chile. Su capital es la ciudad de Pascua.'
     }
 ];

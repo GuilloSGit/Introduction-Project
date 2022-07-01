@@ -36,3 +36,9 @@ function clearSearchInput() {
 	document.getElementById("search").value = "";
 	panel.showPoints(POINTS, POLYGONS);
 }
+
+function createElement(element) {
+	panel.createNewElement(element);
+	map.createNewElement(element);
+	panel.showPoints(POINTS, POLYGONS);
+}
