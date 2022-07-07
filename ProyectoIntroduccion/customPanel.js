@@ -1,5 +1,7 @@
 class CustomPanel {
     constructor() {
+        this._panel = this._create("panelList");
+        this._elements = [];
         this._initialize();
     }
 
@@ -8,8 +10,94 @@ class CustomPanel {
             "bounds-changed",
             (map) => { this._boundsChanged(map); }
         );
+
+        EventsListener.subscribe(
+            "filter-applied",
+            (value) => { this.applyFilter(value); }
+        );
     }
 
+    addElements(elements) {
+        this._elements = this._elements.concat(elements);
+    }
+
+    _create(id) {
+        const ul = document.createElement("ul");
+        ul.style.overflowY = "auto";
+        ul.style.height = "calc(100% - 120px)";
+        document.getElementById(id).appendChild(ul);
+
+        return ul;
+    }
+
+    show() {
+        this.renderElements();
+        this._panel.style.display = "block";
+    }
+
+    renderElements() {
+        for (let element of this._elements) {
+            if (element.isFiltered(this._filterValue)) {
+                element.show(this._panel);
+            }
+        }
+    }
+
+    hide() {
+        this.clearElements();
+        this._panel.style.display = "none";
+    }
+
+    clearElements() {
+        for (let element of this._elements) {
+            element.hide();
+        }
+    }
+
+    create() {
+        for (let element of this._elements) {
+            element.create();
+        }
+    }
+
+    applyFilter(value) {
+        this._filterValue = value;
+        this.clearElements();
+        this.renderElements();
+    }
+
+    _boundsChanged(map) {
+        const layers = map.getElementsInBounds();
+
+        for (let name in layers) {
+            this._filterElementsInMap(layers[name], name);
+        }
+
+        this.renderElements();
+    }
+
+    _filterElementsInMap(list, type) {
+        for (let element in this._elements) {
+            if (element.type == type) {
+                element.inmap = (list.find(point => point.id == element.id) != null);
+            }
+        }
+    }
+/*
+    _findPoints(list) {
+        const out = [];
+        list.forEach(id => out.push(POINTS.find(point => point.id == id)));
+        return out;
+    }
+
+    _findPolygons(list) {
+        const out = [];
+        list.forEach(id => out.push(POLYGONS.find(polygon => polygon.id == id)));
+        return out;
+    }
+*/
+}
+/*
     showPoints(points, polygons) {
         const list = this._getList();
         let count = 0;
@@ -83,7 +171,7 @@ class CustomPanel {
     }
 
     _getList() {
-        return document.getElementById("panel").lastElementChild;
+        return this._panel;
     }
 
     _boundsChanged(map) {
@@ -149,3 +237,4 @@ class CustomPanel {
     }
 
 }
+*/

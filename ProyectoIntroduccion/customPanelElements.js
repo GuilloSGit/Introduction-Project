@@ -1,117 +1,76 @@
-// class CustomPanelElements {
-//     constructor(map) {
-//         this._initialize();
-//         this._panel = this._create();
-//         this._records = [];
-//         this.map = map;
-//     }
+class CustomPanelElement {
+    constructor(type, element) {
+        this.type = type;
+        this.element = element;
+        this.instance = null;
+        this.panel = null;
+        this.inmap = false;
+    }
 
-//     _initialize() {
-//         EventsListener.subscribe(
-//             "bounds-changed",
-//             (map) => { this._boundsChanged(map); }
-//         );
-//     }
+    create() {
+        if (this.instance == null) {
+            this.instance = document.createElement('li');
+            this.fill();
+        }
+    }
 
-//     showPoints(points, polygons) {
-//         const list = this._getList();
-//         let count = 0;
-//         let li;
+    isFiltered() {
+        return true;
+    }
 
-//         list.innerHTML = "";
+    fill() { /* se sobreescribe */ }
 
-//         for (let point of points) {
-//             if (point) {
-//                 li = document.createElement('li');
-//                 list.appendChild(li);
-//                 this._fillElement(li, point);
-//                 count += 1;
-//             }
-//         }
+    show(panel) {
+        this.panel = panel;
+        panel.appendChild(this.instance);
+    }
 
-//         for (let polygon of polygons) {
-//             if (polygon) {
-//                 li = document.createElement('li');
-//                 list.appendChild(li);
-//                 this._fillElement(li, polygon);
-//                 count += 1;
-//             }
-//         }
+    hide() {
+        this.panel.removeChild(this.instance);
+    }
+}
 
-//         this._showTitle(`
-//         Total: ${POINTS.length + POLYGONS.length} registros<br/>
-//         En pantalla:
-//         ${points.length}
-//         ${points.length === 1 ? "punto marcado" : "puntos marcados"} /
-//         ${polygons.length}
-//         ${polygons.length === 1 ? "área" : "áreas"}<hr/>`);
-//     }
+class CustomPanelMarker extends CustomPanelElement {
+    constructor(element) {
+        super("marker", element);
+    }
 
-//     _filter(records) {
-//         const list = this._getList();
-//         list.innerHTML = "";
-//         const search = this._getSearchValue();
-//         let result = [
-//             ...POINTS,
-//             ...POLYGONS
-//         ];
-//         if (search !== "") {
-//             result = result.filter(record => {
-//                 result = record.title.toLowerCase().includes(search.toLowerCase()) || record.description.toLowerCase().includes(search.toLowerCase()) || record.id.toLowerCase().includes(search.toLowerCase());
-//                 return result;
-//             });
-//         }
-//         const answer = document.createElement('p');
-//         answer.innerHTML = `Encontrados: ${result.length}`;
-//         list.appendChild(answer);
-//         result.map(record => {
-//             this._fillElement(list, record);
-//         });
-//     }
+    fill() {
+        this.instance.className = 'point';
+        this.instance.innerHTML = (
+            `<h3 key="${this.element.id}">${this.element.title}</h3>` +
+            `<div class="point-description">` +
+            `<p class="item-info"><b>Info:</b> ${this.element.description}</p>` +
+            `</div>` +
+            `<div class="point-image">` +
+            `<img src="${this.element.image}" class="point-image">`
+        );
+    }
 
-//     _boundsChanged(map) {
-//         const layers = map.getElementsInBounds();
-//         let points = [];
-//         let polygons = [];
+    isFiltered(value) {
+        return value == null || (this.instance.title.includes(value) && this.inmap);
+    }
+}
 
-//         for (let name in layers) {
-//             switch (name) {
-//                 case "marker": points = this._findPoints(layers[name]); break;
-//                 case "polygon": polygons = this._findPolygons(layers[name]); break;
-//                 default: break;
-//             }
-//         }
 
-//         this.showPoints(points, polygons);
-//     }
-// }
+class CustomPanelPolygon extends CustomPanelElement {
+    constructor(element) {
+        super("polygon", element);
+    }
 
-// class CustomPanelTitle extends CustomPanelElements {
+    fill() {
+        this.instance.className = 'polygon';
+        this.instance.innerHTML = (
+            `<h3 key="${this.element.id}">${this.element.title}</h3>` +
+            `<div class="polygon-description">` +
+            `<p class="item-info"><b>Info:</b> ${this.element.description}</p>` +
+            `</div>` +
+            `<div class="polygon-image">` +
+            `<img src="${this.element.image}" class="polygon-image">`
+        );
+    }
 
-//     _getTitle() {
-//         return document.getElementById("panel").firstElementChild;
-//     }
-
-//     _showTitle(message) {
-//         this._getTitle().innerHTML = message;
-//     }
-// }
-
-// class CustomPanelMarker extends CustomPanelElements {
-//     constructor() {
-
-//     }
-
-//     _showPoints(){}
-
-// }
-
-// class CustomPanelPolygon extends CustomPanelElements {
-//     constructor() {
-
-//     }
-
-//     _showPoints(){}
-
-// }
-
+    isFiltered(value) {
+        return value == null || this.instance.description.includes(value);
+    }
+}

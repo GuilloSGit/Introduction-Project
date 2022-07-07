@@ -22,6 +22,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  overflow: hidden;
 }
 .navigator {
   margin-bottom: 10px;
@@ -63,9 +64,7 @@ aside {
   border-radius: 12px;
   max-width: 450px;
   max-height: 85vh;
-  overflow: scroll;
-  scrollbar-color: red blue;
-  scrollbar-width: 120px;
+  overflow: hidden;
 }
 .pageTitle {
   font-size: 1.7em;
@@ -77,9 +76,6 @@ aside {
   margin: 5px 3px;
   padding: 14px;
   padding-right: 10px;
-}
-::-webkit-scrollbar {
-  display: none;
 }
 #points {
   padding-left: 0;

@@ -42,7 +42,6 @@ class CustomMap {
 
         map.addListener("bounds_changed", () => { bounds += 1; });
         map.addListener("zoom_changed", () => { zoom += 1; });
-        
     }
 
     getElementsInBounds() {

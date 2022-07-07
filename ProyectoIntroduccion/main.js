@@ -7,7 +7,25 @@ function run() {
 
 function runPanel() {
 	panel = new CustomPanel();
-	panel.showPoints(POINTS, POLYGONS);
+
+	const markers = preparePanelElements(POINTS, CustomPanelMarker);
+	panel.addElements(markers);
+
+	const polygons = preparePanelElements(POLYGONS, CustomPanelPolygon);
+	panel.addElements(polygons);
+
+	panel.create();
+	panel.show();
+}
+
+function preparePanelElements(elements, clazz) {
+	const out = [];
+
+	for (let element of elements) {
+		out.push(new clazz(element));
+	}
+
+	return out;	
 }
 
 function runMap() {
