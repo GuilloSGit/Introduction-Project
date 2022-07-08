@@ -16,6 +16,7 @@ function runPanel() {
 
 	panel.create();
 	panel.show();
+	panel.setTitle(POINTS, POLYGONS);
 }
 
 function preparePanelElements(elements, clazz) {

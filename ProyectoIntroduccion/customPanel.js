@@ -23,8 +23,6 @@ class CustomPanel {
 
     _create(id) {
         const ul = document.createElement("ul");
-        ul.style.overflowY = "auto";
-        ul.style.height = "calc(100% - 120px)";
         document.getElementById(id).appendChild(ul);
 
         return ul;
@@ -32,7 +30,6 @@ class CustomPanel {
 
     show() {
         this.renderElements();
-        this._panel.style.display = "block";
     }
 
     renderElements() {
@@ -83,6 +80,19 @@ class CustomPanel {
             }
         }
     }
+
+    setTitle() {
+        const titleSection = document.getElementsByClassName('panel-title')[0];
+        titleSection.innerHTML = `
+                Total: ${POINTS.length + POLYGONS.length} registros<br/>
+                En pantalla:
+                ${POINTS.length}
+                ${POINTS.length === 1 ? "punto marcado" : "puntos marcados"} /
+                ${POLYGONS.length}
+                ${POLYGONS.length === 1 ? "área" : "áreas"}<hr/>
+            `;
+    }
+
 /*
     _findPoints(list) {
         const out = [];
