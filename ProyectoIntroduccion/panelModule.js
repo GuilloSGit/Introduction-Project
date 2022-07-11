@@ -1,6 +1,6 @@
 class Panel {
     constructor() {
-        this.panelFacade = {
+        this.mapFacade = {
             show: () => null,
             hide: () => null
         };
@@ -28,7 +28,7 @@ class Panel {
     subscriptions() {
         EventsListener.subscribe(
             "map.ready",
-            (facade) => this.panelFacade = facade
+            (facade) => this.mapFacade = facade
         );
 
         EventsListener.subscribe(
@@ -49,8 +49,6 @@ class Panel {
         this.View.create();
     }
 }
-
-
 
 class PanelLogic {
     constructor(parent) {
@@ -121,7 +119,7 @@ class PanelView {
     }
 
     clickButton() {
-        this.Parent.panelFacade.show();
+        this.Parent.mapFacade.show();
     }
 
     get Logic() {
@@ -129,7 +127,7 @@ class PanelView {
     }
 
     refresh() {
-        const result = this.Logic._boundsChanged(this.Parent.panelFacade.map);
+        const result = this.Logic._boundsChanged(this.Parent.mapFacade.map);
     }
 
     show() { }

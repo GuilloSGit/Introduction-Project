@@ -39,7 +39,6 @@ class CustomMapElements {
     getElementsInBounds() { return []; }
 }
 
-
 class CustomMapMarkers extends CustomMapElements {
     constructor(map) {
         super(map, "marker");
@@ -68,7 +67,6 @@ class CustomMapMarkers extends CustomMapElements {
     }
 }
 
-
 class CustomMapPolygons extends CustomMapElements {
     constructor(map) {
         super(map, "polygon");
@@ -96,7 +94,6 @@ class CustomMapPolygons extends CustomMapElements {
         return out;
     }
 }
-
 
 class CustomMapElement {
     constructor(map) {
@@ -131,7 +128,6 @@ class CustomMapMarker extends CustomMapElement {
         return this.instance.getPosition();
     }
 }
-
 
 class CustomMapPolygon extends CustomMapElement {
     create(attributes) {

@@ -38,13 +38,15 @@ Panel
 		/* 
 		show()
 		hide()
-		setTitle()
 		*/
-	-> PanelStructure
+		
+		-> PanelStructure
 		/* 
 		renderElements()
 		clearElements()
+		setTitle()
 		*/
+	
 	-> PanelService
 		/* 
 		
@@ -52,49 +54,35 @@ Panel
 
 
 Map
-		-> MapLogic
-		-> MapView
+	-> MapLogic
+	/* 
+	getMap()
+	addLayer(layer)
+	_create(attributes)
+	_mapEvents(map)
+	_getElementsInBounds()
+	createId()
+	*/
 
-
-/* 
-class Map {
-    constructor() {
-        this.panelFacade = {
-            show: () => null,
-            hide: () => null
-        }
-        this.ready();
-    }
-
-    ready() {
-        EventsListener.trigger(
-            "map.ready",
-            () => this.getFacade()
-        );
-    }
-
-    subscriptions() {
-        EventsListener.subscribe(
-            "panel.ready",
-            (facade) => this.panelFacade = facade
-        );
-    }
-
-    getFacade() {
-        return {
-            show: () => this.View.show(),
-            hide: () => this.View.hide()
-        }
-    }
-}
-
-class MapView() {
-    clickButton() {
-        this.Parent.panelFacade.show();
-    }
-
-    show() { }
-
-    hide() { }
-}
-*/
+	-> MapView
+	/* 
+	setMap(map)
+	add(elements)
+	show()
+	hide()
+	*/
+	
+	-> MapStructure
+	/* 
+	
+	*/
+	
+	-> MapData
+	/* 
+	
+	*/
+	
+	-> MapService
+	/* 
+	
+	*/
