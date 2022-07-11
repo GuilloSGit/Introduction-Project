@@ -49,6 +49,7 @@ function createPointId(point) {
 
 function search() {
 	EventsListener.trigger("filter-applied", document.getElementById("search").value);
+	document.getElementById("search").value = "";
 }
 
 function clearSearchInput() {
