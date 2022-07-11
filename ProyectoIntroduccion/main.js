@@ -16,7 +16,7 @@ function runPanel() {
 
 	panel.create();
 	panel.show();
-	panel.setTitle(POINTS, POLYGONS);
+	panel.setTitle();
 }
 
 function preparePanelElements(elements, clazz) {
@@ -53,8 +53,8 @@ function search() {
 }
 
 function clearSearchInput() {
+	EventsListener.trigger("filter-applied", "");
 	document.getElementById("search").value = "";
-	panel.showPoints(POINTS, POLYGONS);
 }
 
 function createElement(element) {

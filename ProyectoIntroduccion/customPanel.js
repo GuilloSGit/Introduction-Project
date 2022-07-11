@@ -64,6 +64,7 @@ class CustomPanel {
     }
 
     _boundsChanged(map) {
+        EventsListener.trigger("filter-applied", "");
         const layers = map.getElementsInBounds();
 
         for (let name in layers) {
@@ -95,28 +96,3 @@ class CustomPanel {
 
     
 }
-/*
-
-    _filter(records) {
-        const list = this._getList();
-        list.innerHTML = "";
-        const search = this._getSearchValue();
-        let result = [
-            ...POINTS,
-            ...POLYGONS
-        ];
-        if (search !== "") {
-            result = result.filter(record => {
-                result = record.title.toLowerCase().includes(search.toLowerCase()) || record.description.toLowerCase().includes(search.toLowerCase()) || record.id.toLowerCase().includes(search.toLowerCase());
-                return result;
-            });
-        }
-        const answer = document.createElement('p');
-        answer.innerHTML = `Encontrados: ${result.length}`;
-        list.appendChild(answer);
-        result.map(record => {
-            this._fillElement(list, record);
-        });
-    }
-
-*/
