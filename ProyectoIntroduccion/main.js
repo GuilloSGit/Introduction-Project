@@ -48,7 +48,7 @@ function createPointId(point) {
 }
 
 function search() {
-	panel._filter();
+	EventsListener.trigger("filter-applied", document.getElementById("search").value);
 }
 
 function clearSearchInput() {

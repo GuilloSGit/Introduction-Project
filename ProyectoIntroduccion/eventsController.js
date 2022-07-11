@@ -3,7 +3,7 @@ class EventsController {
 		this._events = {};
 	}
 
-	subscribe(name, fnApply) {
+	subscribe(name, fnApply, attributes) {
 		this._events[name] = fnApply;
 	}
 

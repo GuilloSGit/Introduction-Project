@@ -1,10 +1,12 @@
 class CustomPanelElement {
-    constructor(type, element) {
+    constructor(type, record) {
         this.type = type;
-        this.element = element;
+        this.record = record;
         this.instance = null;
-        this.panel = null;
         this.inmap = false;
+        this.panel = {
+            removeChild: () => null
+        };
     }
 
     create() {
@@ -26,51 +28,55 @@ class CustomPanelElement {
     }
 
     hide() {
-        this.panel.removeChild(this.instance);
+        try {
+            this.panel.removeChild(this.instance);
+        }catch(e) { /* no hace nada */ }
     }
 }
 
 class CustomPanelMarker extends CustomPanelElement {
-    constructor(element) {
-        super("marker", element);
+    constructor(record) {
+        super("marker", record);
     }
 
     fill() {
         this.instance.className = 'point';
         this.instance.innerHTML = (
-            `<h3 key="${this.element.id}">${this.element.title}</h3>` +
+            `<h3 key="${this.record.id}">${this.record.title}</h3>` +
             `<div class="point-description">` +
-            `<p class="item-info"><b>Info:</b> ${this.element.description}</p>` +
+            `<p class="item-info"><b>Info:</b> ${this.record.description}</p>` +
             `</div>` +
             `<div class="point-image">` +
-            `<img src="${this.element.image}" class="point-image">`
+            `<img src="${this.record.image}" class="point-image">`
         );
     }
 
     isFiltered(value) {
-        return value == null || (this.instance.title.includes(value) && this.inmap);
+        const out = (value == null ? true : this.record.title.includes(value));
+        return out && this.inmap;
     }
 }
 
 
 class CustomPanelPolygon extends CustomPanelElement {
-    constructor(element) {
-        super("polygon", element);
+    constructor(record) {
+        super("polygon", record);
     }
 
     fill() {
         this.instance.className = 'polygon';
         this.instance.innerHTML = (
-            `<h3 key="${this.element.id}">${this.element.title}</h3>` +
+            `<h3 key="${this.record.id}">${this.record.title}</h3>` +
             `<div class="polygon-description">` +
-            `<p class="item-info"><b>Info:</b> ${this.element.description}</p>` +
+            `<p class="item-info"><b>Info:</b> ${this.record.description}</p>` +
             `</div>` +
             `<div class="polygon-image">` +
-            `<img src="${this.element.image}" class="polygon-image">`
+            `<img src="${this.record.image}" class="polygon-image">`
         );
     }
 
     isFiltered(value) {
-        return value == null || this.instance.description.includes(value);
+        const out = (value == null ? true : this.record.description.includes(value));
+        return out && this.inmap;
     }
 }

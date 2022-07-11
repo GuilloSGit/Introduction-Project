@@ -70,13 +70,14 @@ class CustomPanel {
             this._filterElementsInMap(layers[name], name);
         }
 
+        this.clearElements();
         this.renderElements();
     }
 
     _filterElementsInMap(list, type) {
-        for (let element in this._elements) {
+        for (let element of this._elements) {
             if (element.type == type) {
-                element.inmap = (list.find(point => point.id == element.id) != null);
+                element.inmap = (list.find(id => id == element.record.id) != null);
             }
         }
     }
@@ -84,13 +85,13 @@ class CustomPanel {
     setTitle() {
         const titleSection = document.getElementsByClassName('panel-title')[0];
         titleSection.innerHTML = `
-                Total: ${POINTS.length + POLYGONS.length} registros<br/>
-                En pantalla:
-                ${POINTS.length}
-                ${POINTS.length === 1 ? "punto marcado" : "puntos marcados"} /
-                ${POLYGONS.length}
-                ${POLYGONS.length === 1 ? "área" : "áreas"}<hr/>
-            `;
+            Total: ${POINTS.length + POLYGONS.length} registros<br/>
+            En pantalla:
+            ${POINTS.length}
+            ${POINTS.length === 1 ? "punto marcado" : "puntos marcados"} /
+            ${POLYGONS.length}
+            ${POLYGONS.length === 1 ? "área" : "áreas"}<hr/>
+        `;
     }
 
 /*
