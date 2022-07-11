@@ -110,12 +110,19 @@ li {
   margin-bottom: 10px;
   max-width: 470px;
 }
-.point > h3, .polygon > h3 {
+.point > h3 {
   width: 98%;
   margin: 3px 0px;
   padding: 4px 8px;
   background-color: rgb(86, 82, 82);
   color: aliceblue;
+}
+.polygon > h3 {
+  width: 98%;
+  margin: 3px 0px;
+  padding: 4px 8px;
+  background-color: rgb(40, 170, 4);
+  color: rgb(0, 0, 0);
 }
 .point-description, .polygon-description {
   margin: 10px 5px;
