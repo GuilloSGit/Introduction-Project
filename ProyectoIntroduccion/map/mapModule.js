@@ -1,27 +1,13 @@
-class MapModule {
+class MapModule extends Module {
     constructor() {
-        this._link("Logic", MapLogic);
-        this._link("View", MapView);
-        this._link("Data", MapData);
-        this._link("Structure", MapStructure);
+        super("Map");
+    }
 
+    initialize() {
         this.panelFacade = {
             show: () => null,
             hide: () => null
         };
-
-        this.ready();
-    }
-
-    _link(name, instance) {
-        this[name] = new instance(this);
-    }
-
-    ready() {
-        EventsListener.trigger(
-            "map.ready",
-            () => this.getFacade()
-        );
     }
 
     addLayer(layer) {
@@ -32,19 +18,9 @@ class MapModule {
         this.Logic.create(areaId);
     }
 
-    show() {
-        this.View.show();
-    }
-
-    hide() {
-        this.View.hide();
-    }
-
     getFacade() {
-        return {
-            show: () => this.View.show(),
-            hide: () => this.View.hide(),
-            getMap: () => this.Logic.getMap()
-        }
+        const out = super.getFacade();
+        out.getMap = () => this.Logic.getMap();
+        return out;
     }
 }

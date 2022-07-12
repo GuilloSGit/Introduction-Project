@@ -1,35 +1,19 @@
-class PanelModule {
+class PanelModule extends Module {
     constructor(areaId) {
+        super("Panel");
         this._areaId = areaId;
+    }
 
-        this._link("Logic", PanelLogic);
-        this._link("View", PanelView);
-        this._link("Data", PanelData);
-        this._link("Structure", PanelStructure);
-
+    initialize() {
         this.mapFacade = {
             show: () => null,
             hide: () => null
         };
-
-        this.subscriptions();
-        this.ready();
-    }
-
-    _link(name, instance) {
-        this[name] = new instance(this);
-    }
-
-    ready() {
-        EventsListener.trigger(
-            "panel.ready",
-            () => this.getFacade()
-        );
     }
 
     subscriptions() {
         EventsListener.subscribe(
-            "map.ready",
+            "Map.ready",
             (facade) => {
                 this.mapFacade = facade;
                 () => this.View.show()
@@ -55,19 +39,9 @@ class PanelModule {
         this.View.create(this._areaId);
     }
 
-    show() {
-        this.View.show();
-    }
-
-    hide() {
-        this.View.hide();
-    }
-
     getFacade() {
-        return {
-            addElements: (elements) => this.addElements(elements),
-            show: () => this.show(),
-            hide: () => this.hide(),
-        }
+        const out = super.getFacade();
+        out.addElements = (elements) => this.addElements(elements);
+        return out;
     }
 }
