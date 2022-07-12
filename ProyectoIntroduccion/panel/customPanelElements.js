@@ -53,7 +53,7 @@ class CustomPanelMarker extends CustomPanelElement {
 
     isFiltered(value) {
         const out = (value == null ? true : this.record.title.toLowerCase().includes(value.toLowerCase()) || this.record.description.toLowerCase().includes(value.toLowerCase()));
-        return out; // && this.inmap;
+        return out && this.inmap;
     }
 }
 
@@ -77,6 +77,6 @@ class CustomPanelPolygon extends CustomPanelElement {
 
     isFiltered(value) {
         const out = (value == null ? true : this.record.description.includes(value));
-        return out; // && this.inmap;
+        return out && this.inmap;
     }
 }

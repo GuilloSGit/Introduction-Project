@@ -271,3 +271,7 @@ input[type=text] {
   box-shadow: inset 0 0 3px rgb(35, 19, 6);
   background: #f9e7cf;
 }
+
+.fa, .fab, .fal, .far, .fas {
+    line-height: 2;
+}
