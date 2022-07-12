@@ -124,12 +124,20 @@ li {
   background-color: rgb(40, 170, 4);
   color: rgb(0, 0, 0);
 }
-.point-description, .polygon-description {
+.point-description{
   margin: 10px 5px;
   padding: 4px 8px;
   width: 220px;
   display: flex;
   flex-direction: column;
+}
+.polygon-description {
+  margin: 10px 5px;
+  padding: 4px 8px;
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  order: 2;
 }
 .point-image, .polygon-image {
   height: 150px;

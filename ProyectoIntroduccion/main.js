@@ -6,7 +6,7 @@ function run() {
 }
 
 function runPanel() {
-	panel = new CustomPanel();
+	panel = new PanelModule("panel");
 
 	const markers = preparePanelElements(POINTS, CustomPanelMarker);
 	panel.addElements(markers);
@@ -16,7 +16,6 @@ function runPanel() {
 
 	panel.create();
 	panel.show();
-	panel.setTitle();
 }
 
 function preparePanelElements(elements, clazz) {

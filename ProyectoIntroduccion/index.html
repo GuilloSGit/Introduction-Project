@@ -14,10 +14,18 @@
     <script type="text/javascript" src="./points.js"></script>
     <script type="text/javascript" src="./polygons.js"></script>
     <script type="text/javascript" src="./eventsController.js"></script>
-    <script type="text/javascript" src="./customPanel.js"></script>
     <script type="text/javascript" src="./customMap.js"></script>
     <script type="text/javascript" src="./customMapElements.js"></script>
-    <script type="text/javascript" src="./customPanelElements.js"></script>
+
+    <script type="text/javascript" src="./customPanel.js"></script>
+    
+    <script type="text/javascript" src="./panel/customPanelElements.js"></script>
+    <script type="text/javascript" src="./panel/panelModule.js"></script>
+    <script type="text/javascript" src="./panel/panelView.js"></script>
+    <script type="text/javascript" src="./panel/panelLogic.js"></script>
+    <script type="text/javascript" src="./panel/panelData.js"></script>
+    <script type="text/javascript" src="./panel/panelStructure.js"></script>
+
     <script type="text/javascript" src="./main.js"></script>
 </head>
 
@@ -31,24 +39,7 @@
     </nav>
     <main>
         <div id="map"></div>
-        <aside id="panel" class="pointsPanel">
-            <h5 class="panel-title"></h5>
-            <span>
-                <button class="btn-create" onclick="createNewPoint()">
-                    <i class="fas fa-plus"></i>
-                </button>
-            </span>
-            <div class="search-box">
-                <input class="search-input" type="text" name="" placeholder="Buscar..." id="search">
-                <button class="search-btn" onclick="search()">
-                    <i class="fas fa-search"></i>
-                </button>
-                <button class="search-clear" onclick="clearSearchInput()">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div id="panelList"></div>
-        </aside>
+        <aside id="panel" class="pointsPanel"></aside>
     </main>
     <!-- render dialog when map is clicked -->
     <dialog id="dialog">
