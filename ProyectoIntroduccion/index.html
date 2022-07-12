@@ -14,9 +14,8 @@
     <script type="text/javascript" src="./points.js"></script>
     <script type="text/javascript" src="./polygons.js"></script>
     <script type="text/javascript" src="./eventsController.js"></script>
-    <script type="text/javascript" src="./customMap.js"></script>
-    <script type="text/javascript" src="./customMapElements.js"></script>
 
+    <script type="text/javascript" src="./customMap.js"></script>
     <script type="text/javascript" src="./customPanel.js"></script>
     
     <script type="text/javascript" src="./panel/customPanelElements.js"></script>
@@ -25,6 +24,13 @@
     <script type="text/javascript" src="./panel/panelLogic.js"></script>
     <script type="text/javascript" src="./panel/panelData.js"></script>
     <script type="text/javascript" src="./panel/panelStructure.js"></script>
+    
+    <script type="text/javascript" src="./map/customMapElements.js"></script>
+    <script type="text/javascript" src="./map/mapModule.js"></script>
+    <script type="text/javascript" src="./map/mapView.js"></script>
+    <script type="text/javascript" src="./map/mapLogic.js"></script>
+    <script type="text/javascript" src="./map/mapData.js"></script>
+    <script type="text/javascript" src="./map/mapStructure.js"></script>
 
     <script type="text/javascript" src="./main.js"></script>
 </head>
@@ -41,28 +47,6 @@
         <div id="map"></div>
         <aside id="panel" class="pointsPanel"></aside>
     </main>
-    <!-- render dialog when map is clicked -->
-    <dialog id="dialog">
-        <h3>Crear nuevo punto</h3>
-        <form method="dialog">
-            <label for="name">Nombre</label>
-            <input type="text" name="title" id="title" placeholder="Nombre">
-            <label for="description">Descripción</label>
-            <textarea name="description" id="description" cols="30" rows="10" placeholder="Descripción"></textarea>
-            <label for="lat">Latitud</label>
-            <input type="text" name="lat" id="lat" placeholder="Latitud">
-            <label for="lng">Longitud</label>
-            <input type="text" name="lng" id="lng" placeholder="Longitud">
-            <label for="type">Tipo</label>
-            <select name="type" id="type">
-                <option value="0">Punto</option>
-                <option value="1">Polígono</option>
-            </select>
-            <button class="btn-create" onclick="createPoint()">
-                <i class="fas fa-plus"></i>
-            </button>
-        </form>
-    </dialog>
     <script src="https://maps.googleapis.com/maps/api/js?callback=runMap" defer></script>
 </body>
 

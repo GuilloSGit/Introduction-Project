@@ -29,7 +29,7 @@ function preparePanelElements(elements, clazz) {
 }
 
 function runMap() {
-	map = new CustomMap();
+	map = new MapModule();
 
 	const markers = new CustomMapMarkers();
 	map.addLayer(markers);
