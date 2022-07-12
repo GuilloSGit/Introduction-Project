@@ -4,10 +4,6 @@ class PanelView {
         this._panel = undefined;
     }
 
-    clickButton() {
-        this.Parent.mapFacade.show();
-    }
-
     get Data() {
         return this.Parent.Data;
     }

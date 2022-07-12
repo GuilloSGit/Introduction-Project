@@ -8,7 +8,6 @@ class PanelLogic {
     }
 
     applyFilter(value) {
-        console.log("applyFilter", value);
         this._filterValue = value;
         this.clearElements();
         this.renderElements();

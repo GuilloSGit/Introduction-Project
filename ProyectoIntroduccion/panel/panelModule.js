@@ -42,7 +42,7 @@ class PanelModule {
 
         EventsListener.subscribe(
             "filter-applied",
-            (value) => { this.applyFilter(value); } 
+            (value) => { this.Logic.applyFilter(value); } 
         );
     }
 
