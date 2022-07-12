@@ -57,42 +57,42 @@ class CustomPanel {
         }
     }
 
-    applyFilter(value) {
-        this._filterValue = value;
-        this.clearElements();
-        this.renderElements();
-    }
+    // applyFilter(value) {
+    //     this._filterValue = value;
+    //     this.clearElements();
+    //     this.renderElements();
+    // }
 
-    _boundsChanged(map) {
-        EventsListener.trigger("filter-applied", "");
-        const layers = map.getElementsInBounds();
+    // _boundsChanged(map) {
+    //     EventsListener.trigger("filter-applied", "");
+    //     const layers = map.getElementsInBounds();
 
-        for (let name in layers) {
-            this._filterElementsInMap(layers[name], name);
-        }
+    //     for (let name in layers) {
+    //         this._filterElementsInMap(layers[name], name);
+    //     }
 
-        this.clearElements();
-        this.renderElements();
-        this.setTitle();
+    //     this.clearElements();
+    //     this.renderElements();
+    //     this.setTitle();
         
-    }
+    // }
 
-    _filterElementsInMap(list, type) {
-        for (let element of this._elements) {
-            if (element.type == type) {
-                element.inmap = (list.find(id => id == element.record.id) != null);
-            }
-        }
-    }
+    // _filterElementsInMap(list, type) {
+    //     for (let element of this._elements) {
+    //         if (element.type == type) {
+    //             element.inmap = (list.find(id => id == element.record.id) != null);
+    //         }
+    //     }
+    // }
 
-    setTitle() {
-        const titleSection = document.getElementsByClassName('panel-title')[0];
-        titleSection.innerHTML = "Total de registros: " +
-            `${POINTS.length + POLYGONS.length}<br />` +
-            "En pantalla: " +
-            `Marcadores  / ` +
-            `Áreas `;
-    }
+    // setTitle() {
+    //     const titleSection = document.getElementsByClassName('panel-title')[0];
+    //     titleSection.innerHTML = "Total de registros: " +
+    //         `${POINTS.length + POLYGONS.length}<br />` +
+    //         "En pantalla: " +
+    //         `Marcadores  / ` +
+    //         `Áreas `;
+    // }
 
     
 }

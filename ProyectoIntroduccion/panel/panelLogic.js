@@ -7,13 +7,16 @@ class PanelLogic {
         return this.Parent.View;
     }
 
-    applyFilter(value) {
-        this._filterValue = value;
-        this.clearElements();
-        this.renderElements();
+    get Data() {
+        return this.Parent.Data;
     }
 
-    _boundsChanged(map) {
+    applyFilter(value) {
+        this.View.setFilterValue(value);
+        this.View.refresh();
+    }
+
+    boundsChanged(map) {
         EventsListener.trigger("filter-applied", "");
         const layers = map.getElementsInBounds();
 
@@ -21,8 +24,7 @@ class PanelLogic {
             this._filterElementsInMap(layers[name], name);
         }
 
-        this.clearElements();
-        this.renderElements();
+        this.View.refresh();
     }
 
     isFiltered() {
@@ -30,7 +32,7 @@ class PanelLogic {
     }
 
     _filterElementsInMap(list, type) {
-        for (let element of this._elements) {
+        for (let element of this.Data.getElements()) {
             if (element.type == type) {
                 element.inmap = (list.find(id => id == element.record.id) != null);
             }

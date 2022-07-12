@@ -12,6 +12,7 @@ class PanelModule {
             hide: () => null
         };
 
+        this.subscriptions();
         this.ready();
     }
 
@@ -37,7 +38,7 @@ class PanelModule {
 
         EventsListener.subscribe(
             "bounds-changed",
-            (map) => { this._boundsChanged(map); }
+            (map) => { this.Logic.boundsChanged(map); }
         );
 
         EventsListener.subscribe(

@@ -2,6 +2,7 @@ class PanelView {
     constructor(parent) {
         this.Parent = parent;
         this._panel = undefined;
+        this._filterValue = null;
     }
 
     get Data() {
@@ -14,6 +15,10 @@ class PanelView {
 
     get Logic() {
         return this.Parent.Logic;
+    }
+
+    setFilterValue(value) {
+        this._filterValue = value;
     }
 
     create(areaId) {
@@ -45,9 +50,9 @@ class PanelView {
 
     renderElements() {
         for (let element of this.Data.getElements()) {
-           // if (element.isFiltered(this._filterValue)) {
+            if (element.isFiltered(this._filterValue)) {
                 element.show(this._panel);
-           // }
+            }
         }
 
         this._updateTitle();
@@ -62,6 +67,11 @@ class PanelView {
         for (let element of this.Data.getElements()) {
             element.hide();
         }
+    }
+
+    refresh() {
+        this.clearElements();
+        this.renderElements();
     }
 
     _updateTitle() {

@@ -10,22 +10,26 @@ class MapModule {
             hide: () => null
         };
 
-        this.running();
+        this.ready();
     }
 
     _link(name, instance) {
         this[name] = new instance(this);
     }
 
-    running() {
+    ready() {
         EventsListener.trigger(
             "map.ready",
             () => this.getFacade()
         );
     }
 
-    subscriptions() {
+    addLayer(layer) {
+        this.View.addLayer(layer);
+    }
 
+    create(areaId) {
+        this.Logic.create(areaId);
     }
 
     show() {
@@ -39,7 +43,8 @@ class MapModule {
     getFacade() {
         return {
             show: () => this.View.show(),
-            hide: () => this.View.hide()
+            hide: () => this.View.hide(),
+            getMap: () => this.Logic.getMap()
         }
     }
 }

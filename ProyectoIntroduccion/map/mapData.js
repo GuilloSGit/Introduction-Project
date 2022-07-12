@@ -1,15 +1,14 @@
 class MapData {
     constructor(parent) {
         this.Parent = parent;
-        this._elements = [];
+        this._layers = [];
     }
 
-    getElements() {
-        this._elements = POINTS.concat(POLYGONS);
-        return this._elements;
+    addLayer(layer) {
+        this._layers.push(layer);
     }
 
-    addElements(elements) {
-        this._elements = this._elements.concat(elements);
+    getLayers() {
+        return this._layers;
     }
 }
