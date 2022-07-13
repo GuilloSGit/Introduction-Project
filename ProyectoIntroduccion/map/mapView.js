@@ -1,15 +1,6 @@
 class MapView {
-    constructor(parent) {
-        this.Parent = parent;
+    constructor() {
         this._layers = [];
-    }
-
-    get Logic() {
-        return this.Parent.Logic;
-    }
-
-    get Data() {
-        return this.Parent.Data;
     }
 
     addLayer(layer) {

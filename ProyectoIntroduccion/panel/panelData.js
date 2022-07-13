@@ -1,6 +1,5 @@
-class PanelData {
-	constructor(parent) {
-		this.Parent = parent;
+class PanelData extends Data{
+	constructor() {
 		this._elements = [];
 	}
 
@@ -11,4 +10,5 @@ class PanelData {
 	addElements(elements) {
 		this._elements = this._elements.concat(elements);
 	}
+
 }

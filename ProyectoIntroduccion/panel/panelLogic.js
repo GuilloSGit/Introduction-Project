@@ -1,14 +1,8 @@
-class PanelLogic {
-    constructor(parent) {
-        this.Parent = parent;
-    }
+class PanelLogic extends Logic {
+    constructor() { }
 
     get View() {
         return this.Parent.View;
-    }
-
-    get Data() {
-        return this.Parent.Data;
     }
 
     applyFilter(value) {

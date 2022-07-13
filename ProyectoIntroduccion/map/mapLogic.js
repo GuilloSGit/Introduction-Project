@@ -1,12 +1,5 @@
-class MapLogic {
-    constructor(parent) {
-        this.Parent = parent;
-        this._map = undefined;
-    }
-
-    get Data() {
-        return this.Parent.Data;
-    }
+class MapLogic extends Logic {
+    constructor() {}
 
     create(areaId) {
         this._map = new google.maps.Map(document.getElementById(areaId), {

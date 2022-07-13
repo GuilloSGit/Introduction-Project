@@ -1,6 +1,6 @@
-class MapData {
-    constructor(parent) {
-        this.Parent = parent;
+class MapData extends Data {
+    constructor() {
+        super("_layers");
         this._layers = [];
     }
 
