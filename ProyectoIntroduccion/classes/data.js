@@ -1,5 +1,5 @@
 class Data {
-    constructor(parent, objects) {
+    constructor(parent) {
         this.Parent = parent;
         this._objects = objects;
     }

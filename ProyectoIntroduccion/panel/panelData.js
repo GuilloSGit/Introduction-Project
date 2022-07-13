@@ -1,4 +1,4 @@
-class PanelData extends Data{
+class PanelData extends Data {
 	constructor() {
 		this._elements = [];
 	}

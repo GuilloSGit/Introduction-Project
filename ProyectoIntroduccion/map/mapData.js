@@ -1,6 +1,5 @@
 class MapData extends Data {
     constructor() {
-        super("_layers");
         this._layers = [];
     }
 
