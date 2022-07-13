@@ -6,4 +6,8 @@ class Logic {
     get Data() {
         return this.Parent.Data;
     }
+
+    get View() {
+        return this.Parent.View;
+    }
 }

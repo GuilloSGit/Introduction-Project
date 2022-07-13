@@ -1,13 +1,30 @@
 class PanelLogic extends Logic {
-    constructor() { }
-
-    get View() {
-        return this.Parent.View;
-    }
-
     applyFilter(value) {
         this.View.setFilterValue(value);
         this.View.refresh();
+    }
+
+    start() {
+        const panel = Main.PanelModule;
+
+        const markers = this._preparePanelElements(POINTS, CustomPanelMarker);
+        panel.addElements(markers);
+
+        const polygons = this._preparePanelElements(POLYGONS, CustomPanelPolygon);
+        panel.addElements(polygons);
+
+        panel.create("panel");
+        panel.show();
+    }
+
+    _preparePanelElements(elements, clazz) {
+        const out = [];
+
+        for (let element of elements) {
+            out.push(new clazz(element));
+        }
+
+        return out; 
     }
 
     boundsChanged(map) {

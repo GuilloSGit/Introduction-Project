@@ -27,6 +27,13 @@ class Module {
         );
     }
 
+    start() {
+        EventsListener.trigger(
+            this.name + ".start",
+            () => this.getFacade()
+        );
+    }
+
     show() {
         this.View.show();
     }

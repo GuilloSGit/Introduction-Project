@@ -1,5 +1,30 @@
 class MapLogic extends Logic {
-    constructor() {}
+    start() {
+        EventsListener.subscribe(
+            "google.ready",
+            () => { 
+                this._map();
+            },
+            {
+                retroactie: true
+            }
+        );
+    }
+
+    _map() {
+        const map = Main.MapModule;
+        map.create("map");
+
+        const markers = new CustomMapMarkers();
+        map.addLayer(markers);
+        markers.add(POINTS);
+        markers.show();
+
+        const polygons = new CustomMapPolygons();
+        map.addLayer(polygons);
+        polygons.add(POLYGONS);
+        polygons.show();
+    }
 
     create(areaId) {
         this._map = new google.maps.Map(document.getElementById(areaId), {
@@ -11,6 +36,7 @@ class MapLogic extends Logic {
         });
 
         this._mapEvents();
+        this.Parent.start();
     }
 
     _mapEvents() {

@@ -1,18 +1,27 @@
 class Data {
-    constructor(parent) {
+    constructor(parent, type) {
         this.Parent = parent;
-        this._objects = objects;
+        this._elements = [];
     }
 
-    getObjects() {
-        return this._objects;
+    get Logic() {
+        return this.Parent.Logic;
     }
 
-    addObjects(objects) {
-        this._objects = this._objects.concat(objects);
+    get View() {
+        return this.Parent.View;
     }
 
-    addObject(object) {
-        this._objects.push(object);
+    getElements() {
+        return this._elements;
+    }
+
+    addElements(elements) {
+        if (Array.isArray(elements)) {
+            this._elements = this._elements.concat(elements);
+        }
+        else {
+            this._elements.push(elements);
+        }
     }
 }

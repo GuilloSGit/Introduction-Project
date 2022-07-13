@@ -1,13 +1,9 @@
 class MapData extends Data {
-    constructor() {
-        this._layers = [];
-    }
-
     addLayer(layer) {
-        this._layers.push(layer);
+        this.addElements(layer);
     }
 
     getLayers() {
-        return this._layers;
+        return this.getElements();
     }
 }

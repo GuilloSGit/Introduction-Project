@@ -10,4 +10,8 @@ class View {
     get Logic() {
         return this.Parent.Logic;
     }
+
+    get Structure() {
+        return this.Parent.Structure;
+    }
 }

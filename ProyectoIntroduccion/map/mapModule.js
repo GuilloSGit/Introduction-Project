@@ -10,6 +10,15 @@ class MapModule extends Module {
         };
     }
 
+    subscriptions() {
+        EventsListener.subscribe(
+            "Application.start",
+            () => {
+                this.Logic.start();
+            }
+        );
+    }
+
     addLayer(layer) {
         this.View.addLayer(layer);
     }

@@ -1,11 +1,8 @@
 class PanelView extends View {
-    constructor() {
+    constructor(parent) {
+        super(parent);
         this._panel = undefined;
         this._filterValue = null;
-    }
-
-    get Structure() {
-        return this.Parent.Structure;
     }
 
     setFilterValue(value) {

@@ -1,8 +1,4 @@
-class PanelStructure {
-    constructor(parent) {
-        this.Parent = parent;
-    }
-
+class PanelStructure extends Structure {
     getHtmlContainer(id) {
         return (
             '<h5 class="panel-title"></h5>' +
@@ -12,7 +8,7 @@ class PanelStructure {
                 '</button>' +
             '</span>' +
             '<div class="search-box">' +
-                '<input class="search-input" type="text" name="" placeholder="Buscar..." id="search">' +
+                '<input class="search-input" type="text" name="" placeholder="Buscar puntos..." id="search">' +
                 '<button class="search-btn" onclick="search()">' +
                     '<i class="fas fa-search"></i>' +
                 '</button>' +

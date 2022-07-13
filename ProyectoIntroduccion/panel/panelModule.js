@@ -1,7 +1,6 @@
 class PanelModule extends Module {
-    constructor(areaId) {
+    constructor() {
         super("Panel");
-        this._areaId = areaId;
     }
 
     initialize() {
@@ -13,7 +12,14 @@ class PanelModule extends Module {
 
     subscriptions() {
         EventsListener.subscribe(
-            "Map.ready",
+            "Application.start",
+            () => {
+                this.Logic.start();
+            }
+        );
+
+        EventsListener.subscribe(
+            "Map.start",
             (facade) => {
                 this.mapFacade = facade;
                 () => this.View.show()
@@ -35,7 +41,8 @@ class PanelModule extends Module {
         this.Data.addElements(elements);
     }
 
-    create() {
+    create(areaId) {
+        this._areaId = areaId;
         this.View.create(this._areaId);
     }
 
