@@ -2,11 +2,6 @@ class PanelStructure extends Structure {
     getHtmlContainer(id) {
         return (
             '<h5 class="panel-title"></h5>' +
-            '<span>' +
-                '<button class="btn-create" onclick="createNewPoint()">' +
-                    '<i class="fas fa-plus"></i>' +
-                '</button>' +
-            '</span>' +
             '<div class="search-box">' +
                 '<input class="search-input" type="text" name="" placeholder="Buscar puntos..." id="search">' +
                 '<button class="search-btn" onclick="search()">' +
@@ -26,7 +21,7 @@ class PanelStructure extends Structure {
             `${POINTS.length + POLYGONS.length}<br />` +
             "En pantalla: " +
             `Marcadores  / ` +
-            `Áreas `
+            `&#193;reas `
         );
     }
 }

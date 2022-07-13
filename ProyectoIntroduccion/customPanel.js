@@ -85,14 +85,4 @@ class CustomPanel {
         }
     }
 
-    setTitle() {
-        const titleSection = document.getElementsByClassName('panel-title')[0];
-        titleSection.innerHTML = "Total de registros: " +
-            `${POINTS.length + POLYGONS.length}<br />` +
-            "En pantalla: " +
-            `Marcadores  / ` +
-            `Áreas `;
-    }
-
-    
 }
