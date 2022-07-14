@@ -39,6 +39,9 @@ class CustomPanelMarker extends CustomPanelElement {
         super("marker", record);
     }
 
+    /**
+     * It takes the data from the Data file and puts it into the HTML file.
+     */
     fill() {
         this.instance.className = 'point';
         this.instance.innerHTML = (
@@ -50,13 +53,16 @@ class CustomPanelMarker extends CustomPanelElement {
             `<img src="${this.record.image}" class="point-image">`
         );
     }
+    
+    
+    isFiltered(searchInput) {
+        if (searchInput == null) return true;
 
-    isFiltered(value) {
-        const out = (value == null ? true : this.record.title.toLowerCase().includes(value.toLowerCase()) || this.record.description.toLowerCase().includes(value.toLowerCase()));
-        return out //&& this.inmap;
+        let isInTitle = this.record.title.toLowerCase().includes(searchInput.toLowerCase())
+        let isInDescription = this.record.description.toLowerCase().includes(searchInput.toLowerCase())
+        return (isInTitle || isInDescription /* && this.inmap */);
     }
 }
-
 
 class CustomPanelPolygon extends CustomPanelElement {
     constructor(record) {
