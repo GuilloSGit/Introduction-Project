@@ -69,4 +69,11 @@ class MapLogic extends Logic {
         return out;
     }
 
+    setFilterCondition(condition) {
+        for (let layer of this.Data.getLayers()) {
+            console.log("layer type",layer.type);
+            console.log("condition",condition)
+        }
+    }
+
 }

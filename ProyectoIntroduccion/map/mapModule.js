@@ -30,6 +30,7 @@ class MapModule extends Module {
     getFacade() {
         const out = super.getFacade();
         out.getMap = () => this.Logic.getMap();
+        out.setFilterCondition = (condition) => this.Logic.setFilterCondition(condition);
         return out;
     }
 }

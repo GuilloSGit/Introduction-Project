@@ -48,13 +48,17 @@ class CustomPanelMarker extends CustomPanelElement {
             `<img src="${this.record.image}" class="point-image">`
         );
     }
+
+    inmap() {
+        
+    }
     
     isFiltered(searchInput) {
         if (searchInput == null) return true;
 
         let isInTitle = this.record.title.toLowerCase().includes(searchInput.toLowerCase())
         let isInDescription = this.record.description.toLowerCase().includes(searchInput.toLowerCase())
-        return (isInTitle || isInDescription /* && this.inmap */);
+        return (isInTitle || isInDescription /* && this.inmap() */);
     }
 }
 
