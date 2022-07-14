@@ -16,9 +16,7 @@ class CustomPanelElement {
         }
     }
 
-    isFiltered() {
-        return true;
-    }
+    isFiltered() { /* se sobreescribe */ }
 
     fill() { /* se sobreescribe */ }
 
@@ -39,9 +37,6 @@ class CustomPanelMarker extends CustomPanelElement {
         super("marker", record);
     }
 
-    /**
-     * It takes the data from the Data file and puts it into the HTML file.
-     */
     fill() {
         this.instance.className = 'point';
         this.instance.innerHTML = (
@@ -53,7 +48,6 @@ class CustomPanelMarker extends CustomPanelElement {
             `<img src="${this.record.image}" class="point-image">`
         );
     }
-    
     
     isFiltered(searchInput) {
         if (searchInput == null) return true;
