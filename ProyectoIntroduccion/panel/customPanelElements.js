@@ -48,10 +48,6 @@ class CustomPanelMarker extends CustomPanelElement {
             `<img src="${this.record.image}" class="point-image">`
         );
     }
-
-    inmap() {
-        
-    }
     
     isFiltered(searchInput) {
         if (searchInput == null) return true;
