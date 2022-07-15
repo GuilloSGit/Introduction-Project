@@ -2,7 +2,12 @@ class PanelView extends View {
     constructor(parent) {
         super(parent);
         this._panel = undefined;
+        this._filter = undefined;
         this._filterValue = null;
+    }
+
+    get Filter() {
+        return this.Parent.Filter;
     }
 
     setFilterValue(value) {
@@ -18,8 +23,9 @@ class PanelView extends View {
 
     _create(id) {
         const node = document.getElementById(id);
-        node.innerHTML = this.Structure.getHtmlContainer(id + "List");
+        node.innerHTML = this.Structure.getHtmlContainer(id);
         this._panel = document.getElementById(id + "List");
+        this._filter = document.getElementById(id + "Filter");
     }
 
     _addElements() {
@@ -28,8 +34,11 @@ class PanelView extends View {
         }
     }
 
-    refresh() {
-        const result = this.Logic._boundsChanged(this.Parent.mapFacade.map);
+    start() {
+        this.Filter.create();
+        this.Filter.addCondition((element, value) => element.isFiltered(value));
+
+        this.show();
     }
 
     show() {
@@ -37,10 +46,10 @@ class PanelView extends View {
     }
 
     renderElements() {
-        for (let element of this.Data.getElements()) {
-            if (element.isFiltered(this._filterValue)) {
-                element.show(this._panel);
-            }
+        const elements = this.Filter.apply(this.Data.getElements());
+
+        for (let element of elements) {
+            element.show(this._panel);
         }
 
         this._updateTitle();
@@ -65,5 +74,9 @@ class PanelView extends View {
     _updateTitle() {
         const titleSection = document.getElementsByClassName('panel-title')[0];
         titleSection.innerHTML = this.Structure.getHtmlTotals();
+    }
+
+    getAreaFilters() {
+        return this._filter;
     }
 }

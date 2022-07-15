@@ -1,6 +1,7 @@
 class PanelModule extends Module {
     constructor() {
         super("Panel");
+        this.link("Filter");
     }
 
     initialize() {
@@ -22,18 +23,12 @@ class PanelModule extends Module {
             "Map.start",
             (facade) => {
                 this.mapFacade = facade;
-                () => this.View.show()
             }
         );
 
         EventsListener.subscribe(
             "bounds-changed",
-            (map) => { this.Logic.boundsChanged(map); }
-        );
-
-        EventsListener.subscribe(
-            "filter-applied",
-            (value) => { this.Logic.applyFilter(value); } 
+            () => { this.View.refresh(); }
         );
     }
 
@@ -49,6 +44,7 @@ class PanelModule extends Module {
     getFacade() {
         const out = super.getFacade();
         out.addElements = (elements) => this.addElements(elements);
+        out.addFilter = (condition) => this.Filter.addCondition(condition);
         return out;
     }
 }

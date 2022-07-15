@@ -16,7 +16,9 @@ class CustomPanelElement {
         }
     }
 
-    isFiltered() { /* se sobreescribe */ }
+    isFiltered() {
+        return true;
+    }
 
     fill() { /* se sobreescribe */ }
 
@@ -48,15 +50,12 @@ class CustomPanelMarker extends CustomPanelElement {
             `<img src="${this.record.image}" class="point-image">`
         );
     }
-    
-    isFiltered(searchInput) {
-        if (searchInput == null) return true;
 
-        let isInTitle = this.record.title.toLowerCase().includes(searchInput.toLowerCase())
-        let isInDescription = this.record.description.toLowerCase().includes(searchInput.toLowerCase())
-        return (isInTitle || isInDescription /* && this.inmap() */);
+    isFiltered(value) {
+        return (value == null ? true : this.record.title.toLowerCase().includes(value.toLowerCase()) || this.record.description.toLowerCase().includes(value.toLowerCase()));
     }
 }
+
 
 class CustomPanelPolygon extends CustomPanelElement {
     constructor(record) {
@@ -75,11 +74,7 @@ class CustomPanelPolygon extends CustomPanelElement {
         );
     }
 
-    isFiltered(searchInput) {
-        if (searchInput == null) return true;
-
-        let isInTitle = this.record.title.toLowerCase().includes(searchInput.toLowerCase())
-        let isInDescription = this.record.description.toLowerCase().includes(searchInput.toLowerCase())
-        return (isInTitle || isInDescription /* && this.inmap() */);
+    isFiltered(value) {
+        return (value == null ? true : this.record.description.includes(value));
     }
 }

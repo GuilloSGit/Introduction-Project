@@ -37,6 +37,10 @@ class CustomMapElements {
     }
 
     getElementsInBounds() { return []; }
+
+    getElementById(id) {
+        return this._elements[id];
+    }
 }
 
 class CustomMapMarkers extends CustomMapElements {
@@ -110,6 +114,10 @@ class CustomMapElement {
     hide() {
         this.instance.setMap(null);
     }
+
+    isInBounds() {
+        return true;
+    }
 }
 
 class CustomMapMarker extends CustomMapElement {
@@ -126,6 +134,10 @@ class CustomMapMarker extends CustomMapElement {
 
     getPosition() {
         return this.instance.getPosition();
+    }
+
+    isInBounds(bounds) {
+        return bounds.contains(this.getPosition());
     }
 }
 
@@ -153,5 +165,9 @@ class CustomMapPolygon extends CustomMapElement {
 
     getPosition() {
         return this.instance.getCenter();
+    }
+
+    isInBounds(bounds) {
+        return (bounds.intersects(this.getBounds()));
     }
 }

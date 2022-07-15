@@ -1,6 +1,9 @@
 class MapModule extends Module {
     constructor() {
         super("Map");
+        this._panelFacade = {
+            addFilter: () => null
+        }
     }
 
     initialize() {
@@ -17,6 +20,13 @@ class MapModule extends Module {
                 this.Logic.start();
             }
         );
+
+        EventsListener.subscribe(
+            "Panel.start",
+            (facade) => {
+                facade.addFilter(this.Logic.getFilterCondition());
+            }
+        );
     }
 
     addLayer(layer) {
@@ -30,7 +40,6 @@ class MapModule extends Module {
     getFacade() {
         const out = super.getFacade();
         out.getMap = () => this.Logic.getMap();
-        out.setFilterCondition = (condition) => this.Logic.setFilterCondition(condition);
         return out;
     }
 }

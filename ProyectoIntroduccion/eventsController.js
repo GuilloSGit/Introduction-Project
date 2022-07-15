@@ -8,7 +8,7 @@ class EventsController {
 		this._events[name] ||= [];
 		this._events[name].push(apply);
 
-		if (name in this._triggers && attributes.retroactive === true) {
+		if (name in this._triggers && attributes.retroactive !== false) {
 			this.trigger(name, this._triggers[name]);
 		}
 	}

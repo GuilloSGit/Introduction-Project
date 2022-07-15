@@ -69,11 +69,25 @@ class MapLogic extends Logic {
         return out;
     }
 
-    setFilterCondition(condition) {
+    _getElementById(id) {
+        let out;
+
         for (let layer of this.Data.getLayers()) {
-            console.log("layer type",layer.type);
-            console.log("condition",condition)
+            out = layer.getElementById(id);
+            if (out != null) { return out; }
         }
+
+        return null;
     }
 
+    getFilterCondition() {
+        return (panelElement) => {
+            const element = this._getElementById(panelElement.record.id);
+            return (
+                element == null ?
+                false :
+                element.isInBounds(this._map.getBounds())
+            );
+        }
+    }
 }

@@ -1,17 +1,17 @@
 class Module {
     constructor(name) {
         this.name = name
-        this._link("Logic");
-        this._link("View");
-        this._link("Data");
-        this._link("Structure");
+        this.link("Logic");
+        this.link("View");
+        this.link("Data");
+        this.link("Structure");
 
         this.initialize();
         this.subscriptions();
         this.ready();
     }
 
-    _link(className) {
+    link(className) {
         try {
             this[className] = eval(`new ${ this.name + className }(this)`);
         }
@@ -23,14 +23,14 @@ class Module {
     ready() {
         EventsListener.trigger(
             this.name + ".ready",
-            () => this.getFacade()
+            this.getFacade()
         );
     }
 
     start() {
         EventsListener.trigger(
             this.name + ".start",
-            () => this.getFacade()
+            this.getFacade()
         );
     }
 
