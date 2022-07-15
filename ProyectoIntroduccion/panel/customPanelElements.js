@@ -79,8 +79,11 @@ class CustomPanelPolygon extends CustomPanelElement {
         );
     }
 
-    isFiltered(value) {
-        const out = (value == null ? true : this.record.description.includes(value));
-        return out// && this.inmap;
+    isFiltered(searchInput) {
+        if (searchInput == null) return true;
+
+        let isInTitle = this.record.title.toLowerCase().includes(searchInput.toLowerCase())
+        let isInDescription = this.record.description.toLowerCase().includes(searchInput.toLowerCase())
+        return (isInTitle || isInDescription /* && this.inmap() */);
     }
 }
