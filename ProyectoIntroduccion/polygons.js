@@ -14,7 +14,7 @@ var POLYGONS = [
         fillColor: "#ff88fb",
         fillOpacity: 0.35,
         image: "https://iso.500px.com/wp-content/uploads/2014/07/big-one.jpg",
-        description: 'Blandengues es una estaci&#243;n ferroviaria ubicada en la localidad del mismo nombre, partido de Partido de Jun&#237;n, Provincia de Buenos Aires, Argentina.'
+        description: 'Blandengues es una estaci&#243;n ferroviaria ubicada en la localidad del mismo nombre, partido de Jun&#237;n, Provincia de Buenos Aires, Argentina.'
     },
     {
         id: "2",
@@ -48,6 +48,6 @@ var POLYGONS = [
         fillColor: "#f6ffFF",
         fillOpacity: 0.35,
         image: "https://www.primeraedicion.com.ar/wp-content/uploads/2022/06/Malvinas-dia-de-la-reafirmacion-de-los-derechos-sobre-las-islas-09-06-2022.jpg",
-        description: 'Las Islas Malvinas (en ingl&#233;s, Falkland Islands) son un archipi&#233;lago de Am&#233;rica del Sur, situado en el mar argentino que es un mar epicontinental del oc&#233;ano Atl&#225;ntico Sur adyacente a dicho pa&#237;s, a unos 500 km de la costa.'
+        description: 'Las Islas Malvinas (en ingl&#233;s, Falkland Islands) son un archipi&#233;lago de Am&#233;rica del Sur, situado en el mar argentino que es un mar epicontinental del oc&#233;ano Atl&#225;ntico Sur adyacente a dicho pa&#237;s, a unos 500 km de la costa. Las Islas Malvinas est&#225;n formadas por una isla de tres kil&#243;metros de lado, y otra de dos kil&#243;metros de lado. Las Islas Malvinas est&#225;n situadas en el oc&#233;ano Atl&#225;ntico Sur, a unos 500 km de la costa de los Estados Unidos.'
     }
 ];
