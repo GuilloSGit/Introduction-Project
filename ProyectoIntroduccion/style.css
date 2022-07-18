@@ -82,6 +82,7 @@ ul {
 
 }
 .pageTitle {
+  color: var(--mdc-theme-background);
   font-size: 1.7em;
   font-weight: bold;
   margin-left: 15px;
@@ -304,6 +305,9 @@ footer {
     min-width: 98%;
     margin-bottom: 6vh;
   }
+  #panelFilter {
+    width: 100%;
+  }
   #panelList {
     width: 100%;
   }
@@ -337,12 +341,6 @@ footer {
     width: 90%;
     margin-bottom: 15px;
     border-radius: 25px;
-  }
-}
-
-@media screen and (max-width: 520px) {
-  .search-input {
-    width: 80%;
   }
 }
 

@@ -11,8 +11,8 @@ class PanelStructure extends Structure {
         return (
             "Total de registros: " +
             `${POINTS.length + POLYGONS.length}<br />` +
-            "En pantalla: " +
-            `Marcadores  / ` +
+            "En pantalla:<br />" +
+            `Marcadores / ` +
             `Áreas `
         );
     }

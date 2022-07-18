@@ -2,7 +2,7 @@ class PanelData extends Data {
 	constructor(parent) {
 		super(parent);
 		this._markers = [];
-		this._polygons = [];
+        this._polygons = [];
 	}
 
 	initialize() {
@@ -27,4 +27,5 @@ class PanelData extends Data {
 
         return out; 
     }
+
 }

@@ -17,6 +17,13 @@ class PanelFilter {
 		this.View.getAreaFilters().innerHTML = this._getHtml();
 	}
 
+/**
+ * Crea un HTML con los filtros que se pueden aplicar a la lista de elementos.
+ * Como tiene que haber una comunicación entre el DOM y el código, se crearon variables estáticas [_instances línea 81],
+ * para guardar los valores ingresados por el usuario en el input de búsqueda cuando se hace click en el botón de búsqueda.
+ * 
+ * @returns A string with HTML code.
+ */
     _getHtml() {
     	PanelFilter.addInstance(
     		this.Parent.name,
