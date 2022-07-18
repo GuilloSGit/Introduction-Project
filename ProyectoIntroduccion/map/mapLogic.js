@@ -6,7 +6,7 @@ class MapLogic extends Logic {
                 this._map();
             },
             {
-                retroactie: true
+                retroactive: true
             }
         );
     }
